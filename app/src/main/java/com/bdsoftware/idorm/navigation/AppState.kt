@@ -5,6 +5,7 @@ import androidx.compose.runtime.Stable
 import androidx.compose.runtime.remember
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
+import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
@@ -47,11 +48,8 @@ class AppState(
 
     private fun NavDestination.isTopLevelDestination(): Boolean {
         return hierarchy.any { destination ->
-            val routeStr = destination.route ?: ""
             topLevelDestinations.any { topLevel ->
-                val qualifiedName = topLevel.routeClass.qualifiedName ?: ""
-                val simpleName = topLevel.routeClass.simpleName ?: ""
-                routeStr == qualifiedName || routeStr.endsWith(simpleName)
+                destination.hasRoute(topLevel.routeClass)
             }
         }
     }

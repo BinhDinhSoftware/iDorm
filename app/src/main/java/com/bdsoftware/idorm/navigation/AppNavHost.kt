@@ -26,6 +26,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavDestination.Companion.hierarchy
+import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -93,10 +94,7 @@ fun IDormTabScaffold(
                 ) {
                     appState.topLevelDestinations.forEach { destination ->
                         val isSelected = currentDestination?.hierarchy?.any {
-                            val routeStr = it.route ?: ""
-                            val qualifiedName = destination.routeClass.qualifiedName ?: ""
-                            val simpleName = destination.routeClass.simpleName ?: ""
-                            routeStr == qualifiedName || routeStr.endsWith(simpleName)
+                            it.hasRoute(destination.routeClass)
                         } == true
 
                         NavigationBarItem(
