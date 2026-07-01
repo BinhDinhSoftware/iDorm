@@ -287,6 +287,7 @@
     <string name="hcmc_detail_review_card_title">Đánh giá chất lượng dịch vụ</string>
     <string name="hcmc_detail_review_star_desc">Sao %1$d</string>
     <string name="hcmc_detail_review_comment_placeholder">Nhận xét (không bắt buộc)</string>
+    <string name="hcmc_detail_review_comment_label">Nhận xét</string>
     <string name="hcmc_detail_review_submit">Gửi đánh giá</string>
     <string name="hcmc_detail_complaint_status_sent">Đã gửi khiếu nại</string>
 
@@ -416,4 +417,11 @@
     <string name="image_field_default_label">Hình ảnh đính kèm</string>
     <string name="image_field_add_photo">Thêm ảnh</string>
     <string name="image_field_delete_photo">Xóa ảnh</string>
+
+    <!-- App Config Dialogs -->
+    <string name="config_maintenance_title">Hệ thống bảo trì</string>
+    <string name="config_maintenance_retry_button">Thử lại</string>
+    <string name="config_update_title">Cập nhật ứng dụng</string>
+    <string name="config_update_message">Phiên bản hiện tại của bạn đã cũ. Vui lòng cập nhật lên phiên bản mới nhất (%1$s) để tiếp tục sử dụng.</string>
+    <string name="config_update_button">Cập nhật ngay</string>
 </resources>

@@ -5,10 +5,13 @@ import androidx.lifecycle.viewModelScope
 import com.bdsoftware.idorm.core.datastore.IDormPreferencesDataSource
 import com.bdsoftware.idorm.core.data.repository.InvoiceRepository
 import com.bdsoftware.idorm.core.data.repository.NotificationRepository
+import com.bdsoftware.idorm.core.domain.AppStatus
+import com.bdsoftware.idorm.core.domain.CheckAppStatusUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -16,22 +19,20 @@ import javax.inject.Inject
 sealed interface MainActivityUiState {
     data object Loading : MainActivityUiState
     data class Success(val isLoggedIn: Boolean) : MainActivityUiState
+    data class Maintenance(val message: String) : MainActivityUiState
+    data class ForceUpdate(val latestVersion: String) : MainActivityUiState
 }
 
 @HiltViewModel
 class MainActivityViewModel @Inject constructor(
     private val tokenManager: IDormPreferencesDataSource,
     private val notificationRepository: NotificationRepository,
-    private val invoiceRepository: InvoiceRepository
+    private val invoiceRepository: InvoiceRepository,
+    private val checkAppStatusUseCase: CheckAppStatusUseCase
 ) : ViewModel() {
 
-    val uiState: StateFlow<MainActivityUiState> = tokenManager.isLoggedIn
-        .map { MainActivityUiState.Success(isLoggedIn = it) }
-        .stateIn(
-            scope = viewModelScope,
-            started = SharingStarted.WhileSubscribed(5_000),
-            initialValue = MainActivityUiState.Loading
-        )
+    private val _uiState = MutableStateFlow<MainActivityUiState>(MainActivityUiState.Loading)
+    val uiState: StateFlow<MainActivityUiState> = _uiState.asStateFlow()
 
     val unreadCount: StateFlow<Int> = notificationRepository.unreadCount
         .stateIn(
@@ -47,7 +48,42 @@ class MainActivityViewModel @Inject constructor(
             initialValue = 0
         )
 
+    fun checkAppStatus() {
+        _uiState.value = MainActivityUiState.Loading
+        viewModelScope.launch {
+            checkAppStatusUseCase().fold(
+                onSuccess = { status ->
+                    when (status) {
+                        is AppStatus.Maintenance -> {
+                            _uiState.value = MainActivityUiState.Maintenance(status.message)
+                        }
+                        is AppStatus.ForceUpdate -> {
+                            _uiState.value = MainActivityUiState.ForceUpdate(status.latestVersion)
+                        }
+                        AppStatus.Ready -> {
+                            observeLoginState()
+                        }
+                    }
+                },
+                onFailure = {
+                    // Default to ready on fetch failure to avoid blocking offline users
+                    observeLoginState()
+                }
+            )
+        }
+    }
+
+    private fun observeLoginState() {
+        viewModelScope.launch {
+            tokenManager.isLoggedIn.collect { isLoggedIn ->
+                _uiState.value = MainActivityUiState.Success(isLoggedIn = isLoggedIn)
+            }
+        }
+    }
+
     init {
+        checkAppStatus()
+
         viewModelScope.launch {
             tokenManager.isLoggedIn.collect { isLoggedIn ->
                 if (isLoggedIn) {

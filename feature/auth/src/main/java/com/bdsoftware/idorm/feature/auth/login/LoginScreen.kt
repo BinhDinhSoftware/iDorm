@@ -34,6 +34,9 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
+import androidx.compose.ui.platform.LocalContext
+import com.bdsoftware.idorm.core.common.util.getAppVersion
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusManager
@@ -220,8 +223,11 @@ internal fun LoginScreen(
 
         Spacer(modifier = Modifier.height(8.dp))
 
+        val context = LocalContext.current
+        val currentVersion = remember(context) { context.getAppVersion() }
+
         Text(
-            text = "${stringResource(DesignR.string.version_label)}: v1.0.0",
+            text = "${stringResource(DesignR.string.version_label)}: v$currentVersion",
             textAlign = TextAlign.Center,
             style = MaterialTheme.typography.bodySmall,
             color = Color.LightGray

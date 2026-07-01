@@ -25,6 +25,8 @@ import com.bdsoftware.idorm.feature.feedback.navigation.navigateToFeedback
 import com.bdsoftware.idorm.navigation.AppNavHost
 import com.bdsoftware.idorm.navigation.ScreenshotBottomSheet
 import com.bdsoftware.idorm.core.designsystem.theme.IDormTheme
+import com.bdsoftware.idorm.core.ui.config.MaintenanceDialog
+import com.bdsoftware.idorm.core.ui.config.ForceUpdateDialog
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
@@ -89,6 +91,17 @@ class MainActivity : ComponentActivity() {
                     when (val state = uiState) {
                         is MainActivityUiState.Loading -> {
                             // Splash screen is still showing, nothing to render
+                        }
+                        is MainActivityUiState.Maintenance -> {
+                            MaintenanceDialog(
+                                message = state.message,
+                                onRetry = { viewModel.checkAppStatus() }
+                            )
+                        }
+                        is MainActivityUiState.ForceUpdate -> {
+                            ForceUpdateDialog(
+                                latestVersion = state.latestVersion
+                            )
                         }
                         is MainActivityUiState.Success -> {
                             AppNavHost(

@@ -35,6 +35,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import com.bdsoftware.idorm.core.common.util.getAppVersion
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -379,9 +380,11 @@ fun AccountScreen(
 
             Spacer(modifier = Modifier.height(28.dp))
 
+            val currentVersion = remember(context) { context.getAppVersion() }
+
             // Footer Version
             Text(
-                text = "${stringResource(DesignR.string.version_label)} 1.0.0",
+                text = "${stringResource(DesignR.string.version_label)} $currentVersion",
                 style = MaterialTheme.typography.bodySmall,
                 color = Color.Gray
             )

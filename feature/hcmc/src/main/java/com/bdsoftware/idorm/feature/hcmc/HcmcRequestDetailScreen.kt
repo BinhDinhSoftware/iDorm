@@ -36,6 +36,8 @@ import androidx.compose.material.icons.filled.ListAlt
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.Tag
+import androidx.compose.material.icons.rounded.Star
+import androidx.compose.material.icons.rounded.StarBorder
 import androidx.compose.material3.*
 import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.runtime.*
@@ -695,6 +697,9 @@ private fun RequestHistoryTab(
     } else {
         val context = LocalContext.current
         var showComplaintBottomSheet by remember { mutableStateOf(false) }
+        var showReviewBottomSheet by remember { mutableStateOf(false) }
+        var selectedStarRating by remember { mutableIntStateOf(0) }
+        var reviewComments by remember { mutableStateOf("") }
 
         // Sort steps by sequence descending (bottom-up) and filter out disabled steps
         val sortedSteps = remember(steps) {
@@ -779,6 +784,34 @@ private fun RequestHistoryTab(
                                 )
                             }
 
+                            // Star rating selector (below department name)
+                            val isReviewStep = stepName.contains("đánh giá chất lượng") || stepName.contains("quality assessment")
+                            if (isReviewStep && stepState != "pending") {
+                                if (reviews.isEmpty()) {
+                                    Spacer(modifier = Modifier.height(8.dp))
+                                    Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                                        for (i in 1..5) {
+                                            Icon(
+                                                imageVector = if (i <= selectedStarRating) Icons.Rounded.Star else Icons.Rounded.StarBorder,
+                                                contentDescription = stringResource(DesignR.string.hcmc_detail_review_star_desc, i),
+                                                tint = if (i <= selectedStarRating) primaryColor else Color(0xFFBDBDBD),
+                                                modifier = Modifier
+                                                    .size(28.dp)
+                                                    .clickable {
+                                                        selectedStarRating = i
+                                                        showReviewBottomSheet = true
+                                                    }
+                                            )
+                                        }
+                                    }
+                                } else {
+                                    ReviewSection(
+                                        reviews = reviews,
+                                        primaryColor = primaryColor
+                                    )
+                                }
+                            }
+
                             // Render embedded history_ids for this step
                             val histories = step.history_ids
                             if (!histories.isNullOrEmpty()) {
@@ -789,17 +822,6 @@ private fun RequestHistoryTab(
                                         primaryColor = primaryColor
                                     )
                                 }
-                            }
-
-                            // Review section on "đánh giá chất lượng" step
-                            val isReviewStep = stepName.contains("đánh giá chất lượng") || stepName.contains("quality assessment")
-                            if (isReviewStep && stepState != "pending") {
-                                ReviewSection(
-                                    reviews = reviews,
-                                    isSubmitting = isReviewSubmitting,
-                                    onSubmitReview = onSubmitReview,
-                                    primaryColor = primaryColor
-                                )
                             }
 
                             // Complaint link + section on "hoàn tất" step
@@ -827,6 +849,82 @@ private fun RequestHistoryTab(
             }
         }
 
+        // ── Review BottomSheet ──
+        @OptIn(ExperimentalMaterial3Api::class)
+        if (showReviewBottomSheet) {
+            ModalBottomSheet(
+                onDismissRequest = { showReviewBottomSheet = false },
+                sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true),
+                containerColor = Color.White,
+                dragHandle = { BottomSheetDefaults.DragHandle() }
+            ) {
+                val focusManager = LocalFocusManager.current
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .navigationBarsPadding()
+                        .pointerInput(Unit) {
+                            detectTapGestures(onTap = { focusManager.clearFocus() })
+                        }
+                        .padding(start = 24.dp, end = 24.dp, top = 8.dp, bottom = 32.dp)
+                ) {
+                    Text(
+                        text = stringResource(DesignR.string.hcmc_detail_review_card_title),
+                        style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
+                        color = primaryColor,
+                        modifier = Modifier.padding(bottom = 16.dp)
+                    )
+
+                    // Editable stars
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(bottom = 16.dp),
+                        horizontalArrangement = Arrangement.Center,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        for (i in 1..5) {
+                            Icon(
+                                imageVector = if (i <= selectedStarRating) Icons.Rounded.Star else Icons.Rounded.StarBorder,
+                                contentDescription = stringResource(DesignR.string.hcmc_detail_review_star_desc, i),
+                                tint = if (i <= selectedStarRating) primaryColor else Color(0xFFBDBDBD),
+                                modifier = Modifier
+                                    .size(40.dp)
+                                    .clickable { selectedStarRating = i }
+                            )
+                        }
+                    }
+
+                    AppTextArea(
+                        value = reviewComments,
+                        onValueChange = { reviewComments = it },
+                        label = stringResource(DesignR.string.hcmc_detail_review_comment_label),
+                        placeholder = stringResource(DesignR.string.hcmc_detail_review_comment_placeholder),
+                        required = false,
+                        minLines = 3,
+                        maxLines = 5,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+
+                    Spacer(modifier = Modifier.height(24.dp))
+
+                    AppButton(
+                        onClick = {
+                            onSubmitReview(selectedStarRating.toString(), reviewComments)
+                            showReviewBottomSheet = false
+                            reviewComments = ""
+                        },
+                        enabled = selectedStarRating > 0 && !isReviewSubmitting,
+                        isLoading = isReviewSubmitting,
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        AppButtonText(stringResource(DesignR.string.hcmc_detail_review_submit))
+                    }
+                }
+            }
+        }
+
+        // ── Complaint BottomSheet ──
         @OptIn(ExperimentalMaterial3Api::class)
         if (showComplaintBottomSheet) {
             var content by remember { mutableStateOf("") }
@@ -1033,123 +1131,54 @@ private fun translateStepState(state: String, context: Context): String {
 @Composable
 private fun ReviewSection(
     reviews: List<NetworkHcmcReviewItem>,
-    isSubmitting: Boolean,
-    onSubmitReview: (String, String) -> Unit,
     primaryColor: Color
 ) {
-    val hasReview = reviews.isNotEmpty()
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(start = 84.dp, bottom = 16.dp, end = 8.dp)
+    if (reviews.isEmpty()) return
+
+    val review = reviews.first()
+    val rating = review.rating?.toDoubleOrNull()?.toInt() ?: 0
+
+    Spacer(modifier = Modifier.height(8.dp))
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(12.dp),
+        colors = CardDefaults.cardColors(containerColor = Color(0xFF1B5E20).copy(alpha = 0.06f)),
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
     ) {
-        if (hasReview) {
-            // Display existing review
-            val review = reviews.first()
-            val rating = review.rating?.toDoubleOrNull()?.toInt() ?: 0
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(12.dp),
-                colors = CardDefaults.cardColors(containerColor = Color(0xFFE8F5E9)),
-                elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
-            ) {
-                Column(modifier = Modifier.padding(12.dp)) {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Icon(
-                            Icons.Filled.CheckCircle,
-                            contentDescription = null,
-                            tint = Color(0xFF1B5E20),
-                            modifier = Modifier.size(16.dp)
-                        )
-                        Spacer(modifier = Modifier.width(6.dp))
-                        Text(
-                            stringResource(DesignR.string.hcmc_detail_review_status_done),
-                            style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.SemiBold),
-                            color = Color(0xFF1B5E20)
-                        )
-                    }
-                    Spacer(modifier = Modifier.height(8.dp))
-                    Row {
-                        for (i in 1..5) {
-                            Icon(
-                                Icons.Filled.Star,
-                                contentDescription = null,
-                                tint = if (i <= rating) Color(0xFFFBBF24) else Color(0xFFE2E8F0),
-                                modifier = Modifier.size(20.dp)
-                            )
-                        }
-                    }
-                    val reviewComments = review.comments
-                    if (!reviewComments.isNullOrBlank()) {
-                        Spacer(modifier = Modifier.height(4.dp))
-                        Text(
-                            reviewComments,
-                            style = MaterialTheme.typography.bodySmall,
-                            color = Color(0xFF546E7A)
-                        )
-                    }
+        Column(modifier = Modifier.padding(12.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Icon(
+                    Icons.Filled.CheckCircle,
+                    contentDescription = null,
+                    tint = Color(0xFF1B5E20),
+                    modifier = Modifier.size(16.dp)
+                )
+                Spacer(modifier = Modifier.width(6.dp))
+                Text(
+                    stringResource(DesignR.string.hcmc_detail_review_status_done),
+                    style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.SemiBold),
+                    color = Color(0xFF1B5E20)
+                )
+            }
+            Spacer(modifier = Modifier.height(8.dp))
+            Row {
+                for (i in 1..5) {
+                    Icon(
+                        imageVector = if (i <= rating) Icons.Rounded.Star else Icons.Rounded.StarBorder,
+                        contentDescription = null,
+                        tint = if (i <= rating) primaryColor else Color(0xFFBDBDBD),
+                        modifier = Modifier.size(20.dp)
+                    )
                 }
             }
-        } else {
-            // Rating input form
-            var selectedRating by remember { mutableIntStateOf(5) }
-            var comments by remember { mutableStateOf("") }
-
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(12.dp),
-                colors = CardDefaults.cardColors(containerColor = Color(0xFFFFFBEB)),
-                elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
-            ) {
-                Column(modifier = Modifier.padding(12.dp)) {
-                    Text(
-                        stringResource(DesignR.string.hcmc_detail_review_card_title),
-                        style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.SemiBold),
-                        color = Color(0xFF92400E)
-                    )
-                    Spacer(modifier = Modifier.height(8.dp))
-                    Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-                        for (i in 1..5) {
-                            Icon(
-                                Icons.Filled.Star,
-                                contentDescription = stringResource(DesignR.string.hcmc_detail_review_star_desc, i),
-                                tint = if (i <= selectedRating) Color(0xFFFBBF24) else Color(0xFFE2E8F0),
-                                modifier = Modifier
-                                    .size(32.dp)
-                                    .clickable { selectedRating = i }
-                            )
-                        }
-                    }
-                    Spacer(modifier = Modifier.height(8.dp))
-                    OutlinedTextField(
-                        value = comments,
-                        onValueChange = { comments = it },
-                        placeholder = { Text(stringResource(DesignR.string.hcmc_detail_review_comment_placeholder), style = MaterialTheme.typography.bodySmall) },
-                        modifier = Modifier.fillMaxWidth(),
-                        textStyle = MaterialTheme.typography.bodySmall,
-                        minLines = 2,
-                        maxLines = 4,
-                        shape = RoundedCornerShape(8.dp)
-                    )
-                    Spacer(modifier = Modifier.height(8.dp))
-                    Button(
-                        onClick = { onSubmitReview(selectedRating.toString(), comments) },
-                        enabled = !isSubmitting,
-                        modifier = Modifier.fillMaxWidth(),
-                        shape = RoundedCornerShape(8.dp),
-                        colors = ButtonDefaults.buttonColors(containerColor = primaryColor)
-                    ) {
-                        if (isSubmitting) {
-                            CircularProgressIndicator(
-                                modifier = Modifier.size(16.dp),
-                                color = Color.White,
-                                strokeWidth = 2.dp
-                            )
-                            Spacer(modifier = Modifier.width(8.dp))
-                        }
-                        Text(stringResource(DesignR.string.hcmc_detail_review_submit), color = Color.White, style = MaterialTheme.typography.bodySmall)
-                    }
-                }
+            val reviewComments = review.comments
+            if (!reviewComments.isNullOrBlank()) {
+                Spacer(modifier = Modifier.height(4.dp))
+                Text(
+                    reviewComments,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = Color(0xFF546E7A)
+                )
             }
         }
     }

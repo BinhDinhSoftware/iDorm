@@ -42,13 +42,25 @@ class ScreenshotDetector(
     fun startListening() {
         Log.d(TAG, "startListening: SDK_INT = ${Build.VERSION.SDK_INT}")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-            val callback = Activity.ScreenCaptureCallback {
-                Log.d(TAG, "ScreenCaptureCallback triggered")
-                triggerCallback()
+            try {
+                val callback = Activity.ScreenCaptureCallback {
+                    Log.d(TAG, "ScreenCaptureCallback triggered")
+                    triggerCallback()
+                }
+                screenCaptureCallback = callback
+                activity.registerScreenCaptureCallback(activity.mainExecutor, callback)
+                Log.d(TAG, "Successfully registered native ScreenCaptureCallback")
+            } catch (e: Exception) {
+                Log.e(TAG, "Failed to register native ScreenCaptureCallback. Falling back to ContentObserver.", e)
+                registerLegacyObserver()
             }
-            screenCaptureCallback = callback
-            activity.registerScreenCaptureCallback(activity.mainExecutor, callback)
         } else {
+            registerLegacyObserver()
+        }
+    }
+
+    private fun registerLegacyObserver() {
+        try {
             val observer = object : ContentObserver(Handler(Looper.getMainLooper())) {
                 override fun onChange(selfChange: Boolean, uri: Uri?) {
                     super.onChange(selfChange, uri)
@@ -76,6 +88,9 @@ class ScreenshotDetector(
                 true,
                 observer
             )
+            Log.d(TAG, "Successfully registered legacy ContentObserver")
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to register legacy ContentObserver", e)
         }
     }
 
@@ -83,15 +98,22 @@ class ScreenshotDetector(
         Log.d(TAG, "stopListening")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
             screenCaptureCallback?.let {
-                activity.unregisterScreenCaptureCallback(it as Activity.ScreenCaptureCallback)
+                try {
+                    activity.unregisterScreenCaptureCallback(it as Activity.ScreenCaptureCallback)
+                } catch (e: Exception) {
+                    Log.e(TAG, "Failed to unregister native ScreenCaptureCallback", e)
+                }
             }
             screenCaptureCallback = null
-        } else {
-            contentObserver?.let {
-                activity.contentResolver.unregisterContentObserver(it)
-            }
-            contentObserver = null
         }
+        contentObserver?.let {
+            try {
+                activity.contentResolver.unregisterContentObserver(it)
+            } catch (e: Exception) {
+                Log.e(TAG, "Failed to unregister legacy ContentObserver", e)
+            }
+        }
+        contentObserver = null
     }
 
     private fun isScreenshotUri(context: Context, uri: Uri): Boolean {

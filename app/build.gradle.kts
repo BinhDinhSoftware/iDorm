@@ -18,8 +18,8 @@ android {
         applicationId = "com.bdsoftware.idorm"
         minSdk = 30
         targetSdk = 35
-        versionCode = 2
-        versionName = "1.0.1"
+        versionCode = 6
+        versionName = "1.0.5"
 
         // giữ lại tiếng Việt và tiếng Anh, loại bỏ 80+ ngôn ngữ thừa từ thư viện
         resourceConfigurations += listOf("vi", "en")
@@ -57,6 +57,9 @@ android {
             if (keystorePropertiesFile.exists()) {
                 signingConfig = signingConfigs.getByName("release")
             }
+            ndk {
+                debugSymbolLevel = "FULL"
+            }
         }
     }
     compileOptions {
@@ -89,6 +92,8 @@ dependencies {
     implementation(project(":core:datastore"))
     implementation(project(":core:common"))
     implementation(project(":core:designsystem"))
+    implementation(project(":core:domain"))
+    implementation(project(":core:ui"))
     implementation(project(":sync"))
     implementation(libs.androidx.work.runtime.ktx)
     implementation(libs.androidx.hilt.work)

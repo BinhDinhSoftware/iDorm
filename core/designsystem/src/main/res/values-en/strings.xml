@@ -287,6 +287,7 @@
     <string name="hcmc_detail_review_card_title">Service Quality Assessment</string>
     <string name="hcmc_detail_review_star_desc">%1$d Stars</string>
     <string name="hcmc_detail_review_comment_placeholder">Comments (optional)</string>
+    <string name="hcmc_detail_review_comment_label">Comments</string>
     <string name="hcmc_detail_review_submit">Submit Review</string>
     <string name="hcmc_detail_complaint_status_sent">Complaint submitted</string>
 
@@ -416,4 +417,11 @@
     <string name="image_field_default_label">Attached images</string>
     <string name="image_field_add_photo">Add photo</string>
     <string name="image_field_delete_photo">Delete photo</string>
+
+    <!-- App Config Dialogs -->
+    <string name="config_maintenance_title">System Maintenance</string>
+    <string name="config_maintenance_retry_button">Retry</string>
+    <string name="config_update_title">App Update</string>
+    <string name="config_update_message">Your current app version is outdated. Please update to the latest version (%1$s) to continue using the application.</string>
+    <string name="config_update_button">Update Now</string>
 </resources>

@@ -7,6 +7,8 @@ import com.bdsoftware.idorm.core.data.repository.WifiAuthRepository
 import com.bdsoftware.idorm.core.data.repository.OfflineFirstWifiAuthRepository
 import com.bdsoftware.idorm.core.data.repository.FeedbackRepository
 import com.bdsoftware.idorm.core.data.repository.OfflineFirstFeedbackRepository
+import com.bdsoftware.idorm.core.data.repository.ConfigRepository
+import com.bdsoftware.idorm.core.data.repository.OfflineFirstConfigRepository
 import com.bdsoftware.idorm.core.data.repository.HcmcRepository
 import com.bdsoftware.idorm.core.data.repository.OfflineFirstHcmcRepository
 import com.bdsoftware.idorm.core.datastore.IDormPreferencesDataSource
@@ -50,4 +52,9 @@ abstract class DataModule {
     abstract fun bindHcmcRepository(
         impl: OfflineFirstHcmcRepository
     ): HcmcRepository
+
+    @Binds
+    abstract fun bindConfigRepository(
+        impl: OfflineFirstConfigRepository
+    ): ConfigRepository
 }
