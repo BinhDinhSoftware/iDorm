@@ -1,0 +1,419 @@
+<resources>
+    <string name="app_name">iDorm</string>
+    <!-- Login Screen -->
+    <string name="login_title">KTX VNU-HCM\nStudent Login</string>
+    <string name="cccd_label">Citizen ID</string>
+    <string name="cccd_placeholder">0544xxxx9091</string>
+    <string name="password_label">Password</string>
+    <string name="password_placeholder">12345678@</string>
+    <string name="login_button">Login</string>
+    <string name="logging_in">Logging in...</string>
+    <string name="forgot_password_link">Forgot password?</string>
+    <string name="login_terms">By logging in, you agree to our Terms of Service and Privacy Policy</string>
+    <string name="version_label">Version</string>
+
+    <!-- Forgot Password Screen -->
+    <string name="forgot_password_title">Forgot Password</string>
+    <string name="email_label">Email</string>
+    <string name="email_placeholder">email@example.com</string>
+    <string name="submit_button">Submit</string>
+    <string name="submitting">Submitting...</string>
+    <string name="submit_success_title">Request Sent Successfully</string>
+    <string name="submit_success_desc">Please check your email to receive a new password.</string>
+    <string name="submit_fail_title">Request Failed</string>
+    <string name="close_button">Close</string>
+
+    <!-- Profile Screen -->
+    <string name="profile_title">Me</string>
+    <string name="room_label">Room</string>
+    <string name="personal_info_opt">Personal Information</string>
+    <string name="rent_history_opt">Rental History</string>
+    <string name="account_settings_opt">Account Settings</string>
+    <string name="feedback_opt">Feedback</string>
+    <string name="logout_opt">Logout</string>
+    <string name="personal_profile_opt">Profile</string>
+    <string name="events_opt">Events</string>
+    <string name="general_info_opt">General Info</string>
+
+    <!-- Navigation Tabs -->
+    <string name="tab_home">Home</string>
+    <string name="tab_invoice">Invoice</string>
+    <string name="tab_notification">Notifications</string>
+    <string name="tab_account">Me</string>
+
+    <!-- Settings Screen -->
+    <string name="account_settings_title">Account Settings</string>
+    <string name="change_password_opt">Change Password</string>
+    <string name="forgot_password_opt">Forgot Password</string>
+    <string name="language_opt">Language</string>
+    <string name="select_language_title">Select Language</string>
+    <string name="login_security_section">Login &amp; Security</string>
+    <string name="change_password_desc">Use to change your account login password</string>
+    <string name="forgot_password_desc">Recover password via verification email</string>
+    <string name="old_password_label">Current Password</string>
+    <string name="old_password_placeholder">Enter current password</string>
+    <string name="new_password_label">New Password</string>
+    <string name="new_password_placeholder">Enter new password</string>
+    <string name="confirm_new_password_label">Confirm New Password</string>
+    <string name="confirm_new_password_placeholder">Re-enter new password</string>
+    <string name="save_button">Save Changes</string>
+    <string name="processing_text">Processing...</string>
+    <string name="cccd_placeholder_settings">Enter Citizen ID number</string>
+    <string name="email_placeholder_settings">Enter verification email</string>
+    <string name="dialog_success">Success</string>
+    <string name="dialog_error">Error</string>
+
+    <!-- Rent History Screen -->
+    <string name="rent_history_title">Rental History</string>
+    <string name="no_rent_history">No rental history found</string>
+    <string name="academic_year_label">Academic Year</string>
+
+    <!-- Feedback Screen -->
+    <string name="feedback_title">Feedback</string>
+    <string name="feedback_type_label">Feedback Type</string>
+    <string name="feedback_content_label">Content</string>
+    <string name="feedback_placeholder">Enter your feedback here...</string>
+    <string name="send_button">Send</string>
+    <string name="sending">Sending...</string>
+
+    <!-- Common -->
+    <string name="common_back">Back</string>
+    <string name="common_home">Home</string>
+    <string name="development_message">Feature under development</string>
+
+    <!-- Home Screen -->
+    <string name="home_welcome_prefix">Hello,</string>
+    <string name="home_loading">Loading...</string>
+    <string name="home_national_pride_notice">Hoang Sa &amp; Truong Sa belong to Vietnam!</string>
+    <string name="home_quick_action_rent_history">Rental History</string>
+    <string name="home_quick_action_hcmc">HCMC Services</string>
+    <string name="home_quick_action_wifi">Free Wi-Fi</string>
+    <string name="home_quick_action_feedback">Feedback</string>
+    <string name="home_ad_badge">Sponsored</string>
+    <string name="home_recent_notifications">Recent Notifications</string>
+    <string name="home_view_all">See all</string>
+    <string name="home_wifi_connected_awing">Connected to AWING: %1$s</string>
+    <string name="home_wifi_connected_other">Wi-Fi: %1$s (not AWING)</string>
+    <string name="home_wifi_disconnected">Not connected to Wi-Fi</string>
+
+    <!-- Invoice Screen -->
+    <string name="invoice_title">Invoices</string>
+    <string name="invoice_tab_room">Room Invoices</string>
+    <string name="invoice_tab_service">Utilities</string>
+    <string name="invoice_search_placeholder">Search by content or date</string>
+    <string name="invoice_empty_text">No invoices found</string>
+    <string name="invoice_status_paid_via">Paid successfully via %1$s</string>
+    <string name="invoice_status_unpaid">Unpaid</string>
+    <string name="invoice_item_detail_format">Amount: %1$s | Status: %2$s | %3$s</string>
+    <string name="invoice_details_header">INVOICE DETAILS</string>
+    <string name="invoice_label_student_name">Student Name</string>
+    <string name="invoice_label_room">Room</string>
+    <string name="invoice_label_academic_year">Academic Year</string>
+    <string name="invoice_label_content">Content</string>
+    <string name="invoice_label_time">Time</string>
+    <string name="invoice_label_payment_method">Payment Method</string>
+    <string name="invoice_label_status">Status</string>
+    <string name="invoice_status_value_paid">Paid</string>
+    <string name="invoice_status_value_unpaid">Unpaid</string>
+    <string name="invoice_total_amount_header">TOTAL AMOUNT</string>
+    <string name="invoice_pay_now_button">Pay Now</string>
+    <string name="invoice_title_room_fee">Room Fee Invoice</string>
+    <string name="invoice_title_accident_insurance">Accident Insurance Invoice</string>
+    <string name="invoice_title_medical_exam">Medical Examination Invoice</string>
+    <string name="invoice_title_service">Service Invoice</string>
+    <string name="invoice_payment_method_online">Online Payment</string>
+    <string name="invoice_detail_electricity">Electricity: %1$d-%2$d (%3$d kWh)</string>
+    <string name="invoice_detail_water">Water: %1$d-%2$d (%3$d m³)</string>
+    <string name="invoice_detail_total_students">Total Students: %1$d</string>
+    <string name="invoice_title_electricity_water">Electricity &amp; Water Invoice for %1$s/%2$d</string>
+    <string name="invoice_payment_method_transfer_wallet">Bank Transfer / E-Wallet</string>
+    <string name="invoice_room_name_default">Zone B - Room</string>
+
+    <!-- Notification Screen -->
+    <string name="notification_screen_title">Notifications</string>
+    <string name="notification_empty_text">No notifications yet</string>
+
+    <!-- Account Screen -->
+    <string name="account_screen_title">My Profile</string>
+    <string name="account_default_name">iDorm Student</string>
+    <string name="account_no_phone">Phone not updated</string>
+
+    <!-- Rent History Screen -->
+    <string name="rent_status_unknown">Unknown</string>
+
+    <!-- Feedback Screen -->
+    <string name="feedback_screen_title">Share Feedback</string>
+    <string name="feedback_submitting">Submitting...</string>
+    <string name="feedback_submit_button">Submit</string>
+    <string name="feedback_description_label">Detailed Description</string>
+    <string name="feedback_description_placeholder">Describe your issue and feedback in detail</string>
+    <string name="feedback_email_label">Contact Email</string>
+    <string name="feedback_images_label">Attached Images (Max 5)</string>
+    <string name="feedback_image_content_desc">Attached image</string>
+    <string name="feedback_success_title">Success</string>
+    <string name="feedback_success_message">Your feedback has been submitted successfully. Thank you for your feedback!</string>
+    <string name="feedback_confirm_button">Confirm</string>
+    <string name="feedback_error_title">Error</string>
+    <string name="feedback_close_button">Close</string>
+
+    <!-- Profile Screen -->
+    <string name="profile_screen_title">About You</string>
+    <string name="profile_retry_button">Retry</string>
+    <string name="profile_not_updated">Not updated</string>
+    <string name="profile_card_identity_title">Identity Information</string>
+    <string name="profile_card_identity_subtitle">Verification helps protect your account</string>
+    <string name="profile_card_basic_title">Basic Information</string>
+    <string name="profile_card_basic_subtitle">Contact and service support information</string>
+    <string name="profile_card_contact_title">Contact Information</string>
+    <string name="profile_card_contact_subtitle">Emergency contact person</string>
+    <string name="profile_card_insurance_title">Insurance</string>
+    <string name="profile_card_insurance_subtitle">Health insurance information</string>
+    <string name="profile_card_additional_title">Additional Information</string>
+    <string name="profile_card_additional_subtitle">Information for friends to know you better</string>
+    <string name="profile_label_name">Name</string>
+    <string name="profile_label_gender">Gender</string>
+    <string name="profile_label_birthday">Date of Birth</string>
+    <string name="profile_label_id_card">ID Card / Citizen Card</string>
+    <string name="profile_label_id_card_date">Issue Date</string>
+    <string name="profile_label_ethnicity">Ethnicity</string>
+    <string name="profile_label_religion">Religion</string>
+    <string name="profile_label_university">University</string>
+    <string name="profile_label_department">Department</string>
+    <string name="profile_label_student_code">Student ID</string>
+    <string name="profile_label_province">Province / City</string>
+    <string name="profile_label_district">District / Ward</string>
+    <string name="profile_label_address">House No. / Street</string>
+    <string name="profile_label_email">Email</string>
+    <string name="profile_label_phone">Phone Number</string>
+    <string name="profile_label_contact_name">Contact Name</string>
+    <string name="profile_label_contact_phone">Contact Phone</string>
+    <string name="profile_label_contact_address">Contact Address</string>
+    <string name="profile_label_hospital_code">Hospital Code</string>
+    <string name="profile_label_insurance_code">Insurance Number</string>
+    <string name="profile_label_insurance_issued">Issue Date</string>
+    <string name="profile_label_insurance_from">Valid From</string>
+    <string name="profile_label_insurance_to">Valid Until</string>
+    <string name="profile_label_high_school">High School Name</string>
+    <string name="profile_label_ability">Talent</string>
+    <string name="profile_label_league_member">Youth Union Member</string>
+    <string name="profile_label_party_member">Party Member</string>
+
+    <!-- Payment Screen -->
+    <string name="payment_title">Payment</string>
+    <string name="payment_back_desc">Back</string>
+    <string name="payment_success_toast">Payment successful!</string>
+    <string name="payment_error_fallback">An error occurred</string>
+    <string name="payment_retry_button">Retry</string>
+    <string name="payment_scan_qr_desc">Scan %1$s QR code to pay</string>
+    <string name="payment_no_qr_desc">No %1$s QR code available</string>
+    <string name="payment_save_success_toast">Saved %1$s QR code to gallery!</string>
+    <string name="payment_save_error_toast">Error saving image: %1$s</string>
+    <string name="payment_download_desc">Download</string>
+    <string name="payment_download_button">Download QR Image</string>
+    <string name="payment_amount_label">Amount to pay</string>
+    <string name="payment_guide_text">Open your banking app or e-wallet, select Scan QR to pay instantly 24/7.\nThe system will automatically confirm when payment is successful.</string>
+    <string name="payment_qr_image_desc">Payment QR Code</string>
+
+    <!-- Screenshot Bottom Sheet -->
+    <string name="screenshot_preview_desc">Screenshot Preview</string>
+    <string name="screenshot_help_title">Need support?</string>
+    <string name="screenshot_close_desc">Close</string>
+    <string name="screenshot_feedback_title">Share feedback</string>
+    <string name="screenshot_feedback_desc">To suggest improvements or report product/service bugs</string>
+
+    <!-- HCMC Screen -->
+    <string name="hcmc_title">One-stop Administrative Services</string>
+    <string name="hcmc_notification_desc">Notification</string>
+    <string name="hcmc_error_fallback">An error occurred</string>
+    <string name="hcmc_retry_button">Retry</string>
+    <string name="hcmc_search_placeholder">Search by ID...</string>
+    <string name="hcmc_empty_requests">No requests found</string>
+    <string name="hcmc_new_request_desc">Create new request</string>
+    <string name="hcmc_service_fallback">Service</string>
+    <string name="hcmc_unknown_date">Unknown date</string>
+
+    <!-- HCMC Create Request Screen -->
+    <string name="hcmc_create_title">Create New Request</string>
+    <string name="hcmc_create_success_toast">Request created successfully!</string>
+    <string name="hcmc_create_guide">Please select the information below to create a request to the Management Board.</string>
+    <string name="hcmc_service_group_label">Service Group</string>
+    <string name="hcmc_service_group_placeholder">Select service group</string>
+    <string name="hcmc_service_label">Service</string>
+    <string name="hcmc_service_placeholder">Select service</string>
+    <string name="hcmc_create_button">Create Request</string>
+
+    <!-- HCMC Notification Screen -->
+    <string name="hcmc_notifications_title">HCMC Notifications</string>
+    <string name="hcmc_notifications_empty">No notifications yet</string>
+    <string name="hcmc_notifications_fallback_title">Notification</string>
+
+    <!-- HCMC Request Detail Screen -->
+    <string name="hcmc_detail_title">Request Details</string>
+    <string name="hcmc_detail_error">An error occurred while loading details</string>
+    <string name="hcmc_detail_tab_info">Request Info</string>
+    <string name="hcmc_detail_tab_history">Approval History</string>
+    <string name="hcmc_detail_card_info_title">General Info</string>
+    <string name="hcmc_detail_card_info_subtitle">Details of your service request</string>
+    <string name="hcmc_detail_label_status">Status</string>
+    <string name="hcmc_detail_label_id">ID</string>
+    <string name="hcmc_detail_label_name">Request Name</string>
+    <string name="hcmc_detail_label_requester">Requester</string>
+    <string name="hcmc_detail_label_date">Request Date</string>
+    <string name="hcmc_detail_label_note">Request Note</string>
+    <string name="hcmc_detail_edit_button">Edit</string>
+    <string name="hcmc_detail_cancel_button">Cancel Request</string>
+    <string name="hcmc_detail_cancel_loading">Cancelling...</string>
+    <string name="hcmc_detail_card_additional_title">Additional Info</string>
+    <string name="hcmc_detail_card_additional_subtitle">Form answers</string>
+    <string name="hcmc_detail_card_attachment_title">Attachments</string>
+    <string name="hcmc_detail_card_attachment_subtitle">Images and supporting documents</string>
+    <string name="hcmc_detail_history_empty">No approval history yet</string>
+    <string name="hcmc_detail_step_fallback">Processing step</string>
+    <string name="hcmc_detail_approver_prefix">Approver: %1$s</string>
+    <string name="hcmc_detail_assigned_prefix">Assigned: %1$s</string>
+    <string name="hcmc_detail_cancel_title">Cancel Request</string>
+    <string name="hcmc_detail_cancel_confirm">Are you sure you want to cancel this request? This action cannot be undone.</string>
+    <string name="hcmc_detail_cancel_reason_label">Cancel Reason</string>
+    <string name="hcmc_detail_cancel_reason_placeholder">Enter cancel reason...</string>
+    <string name="hcmc_detail_cancel_submit">Confirm</string>
+    <string name="hcmc_detail_complaint_link">Send complaint if needed</string>
+    <string name="hcmc_detail_complaint_sheet_title">Submit Result Complaint</string>
+    <string name="hcmc_detail_complaint_label">Complaint Content</string>
+    <string name="hcmc_detail_complaint_placeholder">Enter reason for not meeting requirements...</string>
+    <string name="hcmc_detail_complaint_image_label">Attached Images</string>
+    <string name="hcmc_detail_complaint_image_desc">Attached Image</string>
+    <string name="hcmc_detail_complaint_submit">Submit Complaint</string>
+    <string name="hcmc_detail_review_status_done">Reviewed</string>
+    <string name="hcmc_detail_review_card_title">Service Quality Assessment</string>
+    <string name="hcmc_detail_review_star_desc">%1$d Stars</string>
+    <string name="hcmc_detail_review_comment_placeholder">Comments (optional)</string>
+    <string name="hcmc_detail_review_submit">Submit Review</string>
+    <string name="hcmc_detail_complaint_status_sent">Complaint submitted</string>
+
+    <!-- HCMC Request Edit Screen -->
+    <string name="hcmc_edit_title">Edit Request</string>
+    <string name="hcmc_edit_success_toast">Request updated successfully!</string>
+    <string name="hcmc_edit_loading">Updating...</string>
+    <string name="hcmc_edit_button">Update Request</string>
+    <string name="hcmc_edit_field_textarea_placeholder">Enter content</string>
+    <string name="hcmc_edit_field_select_placeholder">Please select</string>
+    <string name="hcmc_edit_field_date_placeholder">Select date</string>
+    <string name="hcmc_edit_field_date_multi_placeholder">Select dates</string>
+    <string name="hcmc_edit_field_text_placeholder">Enter info</string>
+    <string name="hcmc_edit_note_label">Request details</string>
+    <string name="hcmc_edit_note_placeholder">Enter specific request details for the management board to understand</string>
+    <string name="hcmc_edit_images_label">Attached images (Max 5, &lt; 3MB/image)</string>
+    <string name="hcmc_edit_image_desc">Attached image</string>
+    <string name="hcmc_edit_files_label">Attached files (Max 3, &lt; 3MB/file)</string>
+    <string name="hcmc_edit_confirm_button">Confirm</string>
+
+    <!-- HCMC Request Form Screen -->
+    <string name="hcmc_form_loading_text">Creating request...</string>
+
+    <!-- HCMC States -->
+    <string name="hcmc_state_new">New</string>
+    <string name="hcmc_state_pending">Pending</string>
+    <string name="hcmc_state_assigned">Assigned</string>
+    <string name="hcmc_state_repairing">Repairing</string>
+    <string name="hcmc_state_processing">Processing</string>
+    <string name="hcmc_state_done">Completed</string>
+    <string name="hcmc_state_approved">Approved</string>
+    <string name="hcmc_state_rejected">Rejected</string>
+    <string name="hcmc_state_cancelled">Cancelled</string>
+    <string name="hcmc_state_overdue">Overdue</string>
+    <string name="hcmc_state_waiting">Waiting</string>
+    <string name="hcmc_state_completed">Completed</string>
+    <string name="hcmc_state_unknown">Unknown</string>
+
+    <!-- Wifi Config Screen -->
+    <string name="wifi_config_title">Dorm Free WiFi Config</string>
+    <string name="wifi_config_back_desc">Back</string>
+    <string name="wifi_config_status_label">Status</string>
+    <string name="wifi_config_status_running">Running in background</string>
+    <string name="wifi_config_status_disabled">Disabled</string>
+    <string name="wifi_config_toggle_on">ON</string>
+    <string name="wifi_config_toggle_off">OFF</string>
+    <string name="wifi_config_list_title">Network List</string>
+    <string name="wifi_config_list_subtitle">Mesh routers can configure different gateways</string>
+    <string name="wifi_config_list_empty">No network configuration yet. Please add below.</string>
+    <string name="wifi_config_add_button">Add New WiFi Configuration</string>
+    <string name="wifi_config_delete_confirm_title">Confirm Delete</string>
+    <string name="wifi_config_delete_confirm_msg">Are you sure you want to delete network configuration \"%1$s\" from the list?</string>
+    <string name="wifi_config_delete_confirm_ok">Delete</string>
+    <string name="wifi_config_delete_confirm_cancel">Cancel</string>
+    <string name="wifi_config_label_default">Default</string>
+    <string name="wifi_config_desc_monitored">Monitoring network</string>
+    <string name="wifi_config_desc_manual_login">Try logging in</string>
+    <string name="wifi_config_desc_edit">Edit</string>
+    <string name="wifi_config_desc_delete">Delete</string>
+    <string name="wifi_config_sheet_title_add">ADD AWING WIFI CONFIG</string>
+    <string name="wifi_config_sheet_title_edit">EDIT WIFI CONFIG</string>
+    <string name="wifi_config_field_ssid_label">WiFi Name (SSID)</string>
+    <string name="wifi_config_field_ssid_placeholder">Enter WiFi name (SSID)</string>
+    <string name="wifi_config_field_gateway_label">Gateway URL (Router login)</string>
+    <string name="wifi_config_field_awing_label">AWING Connect URL</string>
+    <string name="wifi_config_save_button">Save Configuration</string>
+    <string name="wifi_config_validation_ssid_empty">SSID name cannot be empty</string>
+    <string name="wifi_config_validation_gateway_invalid">Gateway URL must start with http:// or https://</string>
+    <string name="wifi_config_validation_awing_invalid">AWING URL must start with http:// or https://</string>
+
+    <!-- Wifi Config Messages -->
+    <string name="wifi_config_msg_auto_bypass_enabled">Auto-renew &amp; ad bypass enabled</string>
+    <string name="wifi_config_msg_auto_bypass_disabled">Auto-renew &amp; ad bypass disabled</string>
+    <string name="wifi_config_msg_save_success">Saved WiFi config: %1$s</string>
+    <string name="wifi_config_msg_delete_success">Deleted WiFi config: %1$s</string>
+    <string name="wifi_config_msg_logging_in">Logging in for %1$s...</string>
+    <string name="wifi_config_msg_login_success">Successfully logged in to %1$s network!</string>
+    <string name="wifi_config_msg_login_error">Login error: %1$s</string>
+
+    <!-- Wifi Log Sheet -->
+    <string name="wifi_log_title">Activity Logs (Live Logs)</string>
+    <string name="wifi_log_count">%1$d log lines recorded</string>
+    <string name="wifi_log_clear">Clear logs</string>
+    <string name="wifi_log_empty">No activity log yet.\nTry connecting or enable auto-renew.</string>
+
+    <!-- Validation Messages -->
+    <string name="validation_field_empty">This field cannot be empty</string>
+    <string name="validation_cccd_empty">CCCD number cannot be empty</string>
+    <string name="validation_cccd_format">CCCD number must be 9 to 12 digits</string>
+    <string name="validation_password_empty">Password cannot be empty</string>
+    <string name="validation_email_empty">Email cannot be empty</string>
+    <string name="validation_email_format">Invalid email format</string>
+    <string name="validation_digits_only">Only digits are allowed</string>
+    <string name="validation_description_empty">Detailed description cannot be empty</string>
+    <string name="validation_description_max">Description cannot exceed 500 characters</string>
+    <string name="validation_old_password_empty">Old password cannot be empty</string>
+    <string name="validation_new_password_empty">New password cannot be empty</string>
+    <string name="validation_confirm_password_empty">Confirm new password cannot be empty</string>
+    <string name="validation_password_mismatch">New password and confirmation do not match</string>
+    <string name="validation_email_invalid">Invalid email format</string>
+
+    <!-- Auth Messages -->
+    <string name="login_error_fallback">Login failed</string>
+    <string name="forgot_password_success">Password reset request successful. Please check your email.</string>
+    <string name="forgot_password_error">Failed to send request</string>
+    <string name="change_password_success">Password changed successfully!</string>
+    <string name="change_password_error">Failed to change password</string>
+    <string name="feedback_error_fallback">Failed to send feedback</string>
+
+    <!-- Notification Service Messages -->
+    <string name="notification_channel_name">KTX Free Wifi</string>
+    <string name="notification_channel_desc">Wifi Free status notifications</string>
+    <string name="notification_title_connected">Connecting: %1$s</string>
+    <string name="notification_title_active">iDorm WiFi is active</string>
+    <string name="notification_status_awing_monitoring">AWING Network — Monitoring</string>
+    <string name="notification_status_other_waiting">Other WiFi — Waiting for network connection</string>
+    <string name="notification_status_waiting">Waiting for connection</string>
+    <string name="notification_status_disabled">Wi-Fi is off</string>
+    <string name="notification_status_acquiring">AWING Network — Acquiring Internet...</string>
+    <string name="notification_status_internet_ok">Internet OK</string>
+    <string name="notification_status_renew_failed">AWING — Renewal failed: %1$s</string>
+    <string name="notification_error_channel_name">Wifi Connection Error</string>
+    <string name="notification_error_title">KTX Wifi Renewal Error</string>
+    <string name="notification_error_fallback">Auto-renewal error</string>
+
+    <!-- AppImageField Messages -->
+    <string name="image_field_default_label">Attached images</string>
+    <string name="image_field_add_photo">Add photo</string>
+    <string name="image_field_delete_photo">Delete photo</string>
+</resources>

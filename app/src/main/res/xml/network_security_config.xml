@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- Disable global HTTP cleartext traffic for Google Play compliance -->
+    <base-config cleartextTrafficPermitted="false" />
+
+    <!-- Specific domains/IPs that are allowed to use HTTP cleartext -->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">186.186.0.1</domain>
+        <domain includeSubdomains="true">v1.awingconnect.vn</domain>
+        <domain includeSubdomains="true">sv.ktxhcm.edu.vn</domain>
+        <domain includeSubdomains="true">hanhchinhmotcua.ktxhcm.edu.vn</domain>
+        <domain includeSubdomains="true">apisv.ktxhcm.edu.vn</domain>
+        <domain includeSubdomains="true">ql.ktxhcm.edu.vn</domain>
+    </domain-config>
+</network-security-config>

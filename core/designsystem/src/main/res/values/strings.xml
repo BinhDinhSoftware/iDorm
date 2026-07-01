@@ -1,0 +1,419 @@
+<resources>
+    <string name="app_name">iDorm</string>
+    <!-- Login Screen -->
+    <string name="login_title">Đăng nhập sinh viên KTX\nĐHQG TP.HCM</string>
+    <string name="cccd_label">Số CCCD</string>
+    <string name="cccd_placeholder">0544xxxx9091</string>
+    <string name="password_label">Mật khẩu</string>
+    <string name="password_placeholder">12345678@</string>
+    <string name="login_button">Đăng nhập</string>
+    <string name="logging_in">Đang đăng nhập...</string>
+    <string name="forgot_password_link">Quên mật khẩu?</string>
+    <string name="login_terms">Khi đăng nhập, bạn đã đồng ý với Điều khoản dịch vụ và Chính sách bảo mật của chúng tôi</string>
+    <string name="version_label">Phiên bản</string>
+
+    <!-- Forgot Password Screen -->
+    <string name="forgot_password_title">Quên mật khẩu</string>
+    <string name="email_label">Email</string>
+    <string name="email_placeholder">email@example.com</string>
+    <string name="submit_button">Gửi yêu cầu</string>
+    <string name="submitting">Đang gửi yêu cầu...</string>
+    <string name="submit_success_title">Gửi yêu cầu thành công</string>
+    <string name="submit_success_desc">Vui lòng kiểm tra email để nhận mật khẩu mới.</string>
+    <string name="submit_fail_title">Gửi yêu cầu thất bại</string>
+    <string name="close_button">Đóng</string>
+
+    <!-- Profile Screen -->
+    <string name="profile_title">Tôi</string>
+    <string name="room_label">Phòng</string>
+    <string name="personal_info_opt">Thông tin cá nhân</string>
+    <string name="rent_history_opt">Lịch sử thuê phòng</string>
+    <string name="account_settings_opt">Cài đặt tài khoản</string>
+    <string name="feedback_opt">Chia sẻ góp ý</string>
+    <string name="logout_opt">Đăng xuất</string>
+    <string name="personal_profile_opt">Trang cá nhân</string>
+    <string name="events_opt">Sự kiện</string>
+    <string name="general_info_opt">Thông tin chung</string>
+
+    <!-- Navigation Tabs -->
+    <string name="tab_home">Trang chủ</string>
+    <string name="tab_invoice">Hóa đơn</string>
+    <string name="tab_notification">Thông báo</string>
+    <string name="tab_account">Tôi</string>
+
+    <!-- Settings Screen -->
+    <string name="account_settings_title">Cài đặt tài khoản</string>
+    <string name="change_password_opt">Đổi mật khẩu</string>
+    <string name="forgot_password_opt">Quên mật khẩu</string>
+    <string name="language_opt">Ngôn ngữ</string>
+    <string name="select_language_title">Chọn ngôn ngữ</string>
+    <string name="login_security_section">Đăng nhập và bảo mật</string>
+    <string name="change_password_desc">Sử dụng để đổi mật khẩu đăng nhập tài khoản</string>
+    <string name="forgot_password_desc">Khôi phục mật khẩu thông qua email xác thực</string>
+    <string name="old_password_label">Mật khẩu cũ</string>
+    <string name="old_password_placeholder">Nhập mật khẩu hiện tại</string>
+    <string name="new_password_label">Mật khẩu mới</string>
+    <string name="new_password_placeholder">Nhập mật khẩu mới</string>
+    <string name="confirm_new_password_label">Xác nhận mật khẩu mới</string>
+    <string name="confirm_new_password_placeholder">Nhập lại mật khẩu mới</string>
+    <string name="save_button">Lưu thông tin</string>
+    <string name="processing_text">Đang xử lý...</string>
+    <string name="cccd_placeholder_settings">Nhập số CMND/CCCD</string>
+    <string name="email_placeholder_settings">Nhập email xác thực</string>
+    <string name="dialog_success">Thành công</string>
+    <string name="dialog_error">Lỗi</string>
+
+    <!-- Rent History Screen -->
+    <string name="rent_history_title">Lịch sử thuê phòng</string>
+    <string name="no_rent_history">Không có lịch sử thuê phòng</string>
+    <string name="academic_year_label">Niên khóa</string>
+
+    <!-- Feedback Screen -->
+    <string name="feedback_title">Chia sẻ góp ý</string>
+    <string name="feedback_type_label">Loại ý kiến</string>
+    <string name="feedback_content_label">Nội dung</string>
+    <string name="feedback_placeholder">Nhập nội dung góp ý của bạn...</string>
+    <string name="send_button">Gửi</string>
+    <string name="sending">Đang gửi...</string>
+
+    <!-- Common -->
+    <string name="common_back">Quay lại</string>
+    <string name="common_home">Trang chủ</string>
+    <string name="development_message">Chức năng đang được phát triển</string>
+
+    <!-- Home Screen -->
+    <string name="home_welcome_prefix">Xin chào,</string>
+    <string name="home_loading">Đang tải...</string>
+    <string name="home_national_pride_notice">Hoàng sa &amp; Trường sa là của Việt Nam !</string>
+    <string name="home_quick_action_rent_history">Lịch sử thuê</string>
+    <string name="home_quick_action_hcmc">Hành chính một cửa</string>
+    <string name="home_quick_action_wifi">Wifi Free</string>
+    <string name="home_quick_action_feedback">Góp ý</string>
+    <string name="home_ad_badge">Quảng cáo</string>
+    <string name="home_recent_notifications">Thông báo mới</string>
+    <string name="home_view_all">Xem tất cả</string>
+    <string name="home_wifi_connected_awing">Đã kết nối AWING: %1$s</string>
+    <string name="home_wifi_connected_other">WiFi: %1$s (không phải AWING)</string>
+    <string name="home_wifi_disconnected">Chưa kết nối WiFi</string>
+
+    <!-- Invoice Screen -->
+    <string name="invoice_title">Hóa đơn</string>
+    <string name="invoice_tab_room">Hóa đơn phòng</string>
+    <string name="invoice_tab_service">Điện nước</string>
+    <string name="invoice_search_placeholder">Tìm theo nội dung hoặc ngày</string>
+    <string name="invoice_empty_text">Không có hóa đơn nào</string>
+    <string name="invoice_status_paid_via">Thanh toán thành công qua %1$s</string>
+    <string name="invoice_status_unpaid">Chờ thanh toán</string>
+    <string name="invoice_item_detail_format">Số tiền: %1$s | Trạng thái: %2$s | %3$s</string>
+    <string name="invoice_details_header">CHI TIẾT HÓA ĐƠN</string>
+    <string name="invoice_label_student_name">Tên sinh viên</string>
+    <string name="invoice_label_room">Phòng ở</string>
+    <string name="invoice_label_academic_year">Niên khóa</string>
+    <string name="invoice_label_content">Nội dung</string>
+    <string name="invoice_label_time">Thời gian</string>
+    <string name="invoice_label_payment_method">Phương thức thanh toán</string>
+    <string name="invoice_label_status">Trạng thái</string>
+    <string name="invoice_status_value_paid">Đã thanh toán</string>
+    <string name="invoice_status_value_unpaid">Chưa thanh toán</string>
+    <string name="invoice_total_amount_header">TỔNG TIỀN</string>
+    <string name="invoice_pay_now_button">Thanh toán ngay</string>
+    <string name="invoice_title_room_fee">Hóa đơn lệ phí phòng</string>
+    <string name="invoice_title_accident_insurance">Hóa đơn bảo hiểm tai nạn</string>
+    <string name="invoice_title_medical_exam">Hóa đơn phí khám sức khỏe</string>
+    <string name="invoice_title_service">Hóa đơn dịch vụ</string>
+    <string name="invoice_payment_method_online">Thanh toán trực tuyến</string>
+    <string name="invoice_detail_electricity">Điện: %1$d-%2$d (%3$d kWh)</string>
+    <string name="invoice_detail_water">Nước: %1$d-%2$d (%3$d m³)</string>
+    <string name="invoice_detail_total_students">Tổng số SV: %1$d</string>
+    <string name="invoice_title_electricity_water">Hóa đơn Điện nước tháng %1$s/%2$d</string>
+    <string name="invoice_payment_method_transfer_wallet">Chuyển khoản / Ví điện tử</string>
+    <string name="invoice_room_name_default">Khu B - Phòng ở</string>
+
+    <!-- Notification Screen -->
+    <string name="notification_screen_title">Thông báo</string>
+    <string name="notification_empty_text">Chưa có thông báo nào</string>
+
+    <!-- Account Screen -->
+    <string name="account_screen_title">Trang cá nhân</string>
+    <string name="account_default_name">Sinh viên iDorm</string>
+    <string name="account_no_phone">Chưa cập nhật SĐT</string>
+
+    <!-- Rent History Screen -->
+    <string name="rent_status_unknown">Không rõ</string>
+
+    <!-- Feedback Screen -->
+    <string name="feedback_screen_title">Chia sẻ góp ý</string>
+    <string name="feedback_submitting">Đang gửi...</string>
+    <string name="feedback_submit_button">Gửi</string>
+    <string name="feedback_description_label">Mô tả chi tiết</string>
+    <string name="feedback_description_placeholder">Mô tả chi tiết vấn đề và góp ý của bạn</string>
+    <string name="feedback_email_label">Email liên hệ</string>
+    <string name="feedback_images_label">Hình ảnh đính kèm (Tối đa 5 ảnh)</string>
+    <string name="feedback_image_content_desc">Ảnh đính kèm</string>
+    <string name="feedback_success_title">Thành công</string>
+    <string name="feedback_success_message">Góp ý của bạn đã được gửi thành công. Cảm ơn phản hồi từ bạn!</string>
+    <string name="feedback_confirm_button">Xác nhận</string>
+    <string name="feedback_error_title">Lỗi</string>
+    <string name="feedback_close_button">Đóng</string>
+
+    <!-- Profile Screen -->
+    <string name="profile_screen_title">Thông tin về bạn</string>
+    <string name="profile_retry_button">Thử lại</string>
+    <string name="profile_not_updated">Chưa cập nhật</string>
+    <string name="profile_card_identity_title">Thông tin xác thực</string>
+    <string name="profile_card_identity_subtitle">Xác thực giúp bảo vệ tài khoản</string>
+    <string name="profile_card_basic_title">Thông tin cơ bản</string>
+    <string name="profile_card_basic_subtitle">Thông tin liên lạc và hỗ trợ dịch vụ</string>
+    <string name="profile_card_contact_title">Thông tin liên hệ</string>
+    <string name="profile_card_contact_subtitle">Người liên hệ khẩn cấp</string>
+    <string name="profile_card_insurance_title">Bảo hiểm</string>
+    <string name="profile_card_insurance_subtitle">Thông tin bảo hiểm y tế</string>
+    <string name="profile_card_additional_title">Thông tin bổ sung</string>
+    <string name="profile_card_additional_subtitle">Thông tin để bạn bè hiểu bạn hơn</string>
+    <string name="profile_label_name">Tên</string>
+    <string name="profile_label_gender">Giới tính</string>
+    <string name="profile_label_birthday">Ngày sinh</string>
+    <string name="profile_label_id_card">CMND/Thẻ căn cước</string>
+    <string name="profile_label_id_card_date">Ngày cấp</string>
+    <string name="profile_label_ethnicity">Dân tộc</string>
+    <string name="profile_label_religion">Tôn giáo</string>
+    <string name="profile_label_university">Trường</string>
+    <string name="profile_label_department">Khoa</string>
+    <string name="profile_label_student_code">Mã số sinh viên</string>
+    <string name="profile_label_province">Tỉnh/Thành phố</string>
+    <string name="profile_label_district">Xã/Phường</string>
+    <string name="profile_label_address">Số nhà/Tên đường</string>
+    <string name="profile_label_email">Email</string>
+    <string name="profile_label_phone">Số điện thoại</string>
+    <string name="profile_label_contact_name">Tên người liên hệ</string>
+    <string name="profile_label_contact_phone">SĐT người liên hệ</string>
+    <string name="profile_label_contact_address">Địa chỉ người liên hệ</string>
+    <string name="profile_label_hospital_code">Mã bệnh viện</string>
+    <string name="profile_label_insurance_code">Số BHYT</string>
+    <string name="profile_label_insurance_issued">Ngày cấp</string>
+    <string name="profile_label_insurance_from">Thời hạn từ</string>
+    <string name="profile_label_insurance_to">Thời hạn đến</string>
+    <string name="profile_label_high_school">Tên trường cấp 3</string>
+    <string name="profile_label_ability">Năng khiếu</string>
+    <string name="profile_label_league_member">Đoàn viên</string>
+    <string name="profile_label_party_member">Đảng viên</string>
+
+    <!-- Payment Screen -->
+    <string name="payment_title">Thanh toán</string>
+    <string name="payment_back_desc">Quay lại</string>
+    <string name="payment_success_toast">Thanh toán thành công!</string>
+    <string name="payment_error_fallback">Có lỗi xảy ra</string>
+    <string name="payment_retry_button">Thử lại</string>
+    <string name="payment_scan_qr_desc">Quét mã QR %1$s để thanh toán</string>
+    <string name="payment_no_qr_desc">Không có mã QR %1$s</string>
+    <string name="payment_save_success_toast">Đã lưu mã QR %1$s vào thư viện!</string>
+    <string name="payment_save_error_toast">Lỗi khi lưu ảnh: %1$s</string>
+    <string name="payment_download_desc">Tải xuống</string>
+    <string name="payment_download_button">Tải ảnh QR</string>
+    <string name="payment_amount_label">Số tiền cần thanh toán</string>
+    <string name="payment_guide_text">Mở ứng dụng ngân hàng hoặc ví điện tử, chọn mục Quét mã QR để thanh toán nhanh 24/7.\nHệ thống sẽ tự động xác nhận khi thanh toán thành công.</string>
+    <string name="payment_qr_image_desc">Mã QR thanh toán</string>
+
+    <!-- Screenshot Bottom Sheet -->
+    <string name="screenshot_preview_desc">Screenshot Preview</string>
+    <string name="screenshot_help_title">Bạn cần hỗ trợ?</string>
+    <string name="screenshot_close_desc">Đóng</string>
+    <string name="screenshot_feedback_title">Chia sẻ góp ý</string>
+    <string name="screenshot_feedback_desc">Để đề xuất cải thiện hoặc báo lỗi sản phẩm/dịch vụ</string>
+
+    <!-- HCMC Screen -->
+    <string name="hcmc_title">Hành chính một cửa</string>
+    <string name="hcmc_notification_desc">Thông báo</string>
+    <string name="hcmc_error_fallback">Đã xảy ra lỗi</string>
+    <string name="hcmc_retry_button">Thử lại</string>
+    <string name="hcmc_search_placeholder">Tìm theo mã ID...</string>
+    <string name="hcmc_empty_requests">Không có yêu cầu nào</string>
+    <string name="hcmc_new_request_desc">Tạo yêu cầu mới</string>
+    <string name="hcmc_service_fallback">Dịch vụ</string>
+    <string name="hcmc_unknown_date">Không rõ ngày</string>
+
+    <!-- HCMC Create Request Screen -->
+    <string name="hcmc_create_title">Tạo yêu cầu mới</string>
+    <string name="hcmc_create_success_toast">Tạo yêu cầu thành công!</string>
+    <string name="hcmc_create_guide">Vui lòng lựa chọn các thông tin dưới đây để tạo yêu cầu gửi Ban quản lý.</string>
+    <string name="hcmc_service_group_label">Nhóm dịch vụ</string>
+    <string name="hcmc_service_group_placeholder">Chọn nhóm dịch vụ</string>
+    <string name="hcmc_service_label">Dịch vụ</string>
+    <string name="hcmc_service_placeholder">Chọn dịch vụ</string>
+    <string name="hcmc_create_button">Tạo yêu cầu</string>
+
+    <!-- HCMC Notification Screen -->
+    <string name="hcmc_notifications_title">Thông báo HCMC</string>
+    <string name="hcmc_notifications_empty">Chưa có thông báo nào</string>
+    <string name="hcmc_notifications_fallback_title">Thông báo</string>
+
+    <!-- HCMC Request Detail Screen -->
+    <string name="hcmc_detail_title">Chi tiết yêu cầu</string>
+    <string name="hcmc_detail_error">Đã xảy ra lỗi khi tải chi tiết</string>
+    <string name="hcmc_detail_tab_info">Thông tin yêu cầu</string>
+    <string name="hcmc_detail_tab_history">Lịch sử duyệt</string>
+    <string name="hcmc_detail_card_info_title">Thông tin chung</string>
+    <string name="hcmc_detail_card_info_subtitle">Chi tiết về yêu cầu dịch vụ của bạn</string>
+    <string name="hcmc_detail_label_status">Trạng thái</string>
+    <string name="hcmc_detail_label_id">Mã ID</string>
+    <string name="hcmc_detail_label_name">Tên yêu cầu</string>
+    <string name="hcmc_detail_label_requester">Người yêu cầu</string>
+    <string name="hcmc_detail_label_date">Ngày yêu cầu</string>
+    <string name="hcmc_detail_label_note">Nội dung yêu cầu</string>
+    <string name="hcmc_detail_edit_button">Chỉnh sửa</string>
+    <string name="hcmc_detail_cancel_button">Hủy yêu cầu</string>
+    <string name="hcmc_detail_cancel_loading">Đang hủy...</string>
+    <string name="hcmc_detail_card_additional_title">Thông tin bổ sung</string>
+    <string name="hcmc_detail_card_additional_subtitle">Các câu trả lời tương ứng với biểu mẫu</string>
+    <string name="hcmc_detail_card_attachment_title">File đính kèm</string>
+    <string name="hcmc_detail_card_attachment_subtitle">Ảnh và tài liệu minh chứng</string>
+    <string name="hcmc_detail_history_empty">Chưa có lịch sử duyệt nào</string>
+    <string name="hcmc_detail_step_fallback">Bước xử lý</string>
+    <string name="hcmc_detail_approver_prefix">Người duyệt: %1$s</string>
+    <string name="hcmc_detail_assigned_prefix">Đã phân công: %1$s</string>
+    <string name="hcmc_detail_cancel_title">Hủy yêu cầu</string>
+    <string name="hcmc_detail_cancel_confirm">Bạn có chắc chắn muốn hủy yêu cầu này không? Thao tác này không thể hoàn tác.</string>
+    <string name="hcmc_detail_cancel_reason_label">Lý do hủy</string>
+    <string name="hcmc_detail_cancel_reason_placeholder">Nhập lý do hủy...</string>
+    <string name="hcmc_detail_cancel_submit">Xác nhận</string>
+    <string name="hcmc_detail_complaint_link">Gửi khiếu nại nếu cần</string>
+    <string name="hcmc_detail_complaint_sheet_title">Gửi khiếu nại kết quả</string>
+    <string name="hcmc_detail_complaint_label">Nội dung khiếu nại</string>
+    <string name="hcmc_detail_complaint_placeholder">Nhập lý do không đạt yêu cầu...</string>
+    <string name="hcmc_detail_complaint_image_label">Hình ảnh đính kèm</string>
+    <string name="hcmc_detail_complaint_image_desc">Ảnh đính kèm</string>
+    <string name="hcmc_detail_complaint_submit">Gửi khiếu nại</string>
+    <string name="hcmc_detail_review_status_done">Đã đánh giá</string>
+    <string name="hcmc_detail_review_card_title">Đánh giá chất lượng dịch vụ</string>
+    <string name="hcmc_detail_review_star_desc">Sao %1$d</string>
+    <string name="hcmc_detail_review_comment_placeholder">Nhận xét (không bắt buộc)</string>
+    <string name="hcmc_detail_review_submit">Gửi đánh giá</string>
+    <string name="hcmc_detail_complaint_status_sent">Đã gửi khiếu nại</string>
+
+    <!-- HCMC Request Edit Screen -->
+    <string name="hcmc_edit_title">Chỉnh sửa yêu cầu</string>
+    <string name="hcmc_edit_success_toast">Cập nhật yêu cầu thành công!</string>
+    <string name="hcmc_edit_loading">Đang cập nhật...</string>
+    <string name="hcmc_edit_button">Cập nhật yêu cầu</string>
+    <string name="hcmc_edit_field_textarea_placeholder">Nhập nội dung</string>
+    <string name="hcmc_edit_field_select_placeholder">Vui lòng chọn</string>
+    <string name="hcmc_edit_field_date_placeholder">Chọn ngày</string>
+    <string name="hcmc_edit_field_date_multi_placeholder">Chọn các ngày</string>
+    <string name="hcmc_edit_field_text_placeholder">Nhập thông tin</string>
+    <string name="hcmc_edit_note_label">Chi tiết yêu cầu</string>
+    <string name="hcmc_edit_note_placeholder">Nhập chi tiết yêu cầu cụ thể của bạn để ban quản lý nắm rõ</string>
+    <string name="hcmc_edit_images_label">Hình ảnh đính kèm (Tối đa 5 ảnh, &lt; 3MB/ảnh)</string>
+    <string name="hcmc_edit_image_desc">Ảnh đính kèm</string>
+    <string name="hcmc_edit_files_label">Tệp đính kèm (Tối đa 3 tệp, &lt; 3MB/tệp)</string>
+    <string name="hcmc_edit_confirm_button">Xác nhận</string>
+
+    <!-- HCMC Request Form Screen -->
+    <string name="hcmc_form_loading_text">Đang tạo yêu cầu...</string>
+
+    <!-- HCMC States -->
+    <string name="hcmc_state_new">Mới</string>
+    <string name="hcmc_state_pending">Chờ duyệt</string>
+    <string name="hcmc_state_assigned">Đã phân công</string>
+    <string name="hcmc_state_repairing">Đang sửa chữa</string>
+    <string name="hcmc_state_processing">Đang xử lý</string>
+    <string name="hcmc_state_done">Hoàn thành</string>
+    <string name="hcmc_state_approved">Đã duyệt</string>
+    <string name="hcmc_state_rejected">Từ chối</string>
+    <string name="hcmc_state_cancelled">Đã hủy</string>
+    <string name="hcmc_state_overdue">Quá hạn</string>
+    <string name="hcmc_state_waiting">Chờ xử lý</string>
+    <string name="hcmc_state_completed">Hoàn tất</string>
+    <string name="hcmc_state_unknown">Không xác định</string>
+
+    <!-- Wifi Config Screen -->
+    <string name="wifi_config_title">Cấu hình WiFi Free KTX</string>
+    <string name="wifi_config_back_desc">Quay lại</string>
+    <string name="wifi_config_status_label">Trạng thái</string>
+    <string name="wifi_config_status_running">Đang chạy nền</string>
+    <string name="wifi_config_status_disabled">Đã tắt</string>
+    <string name="wifi_config_toggle_on">BẬT</string>
+    <string name="wifi_config_toggle_off">TẮT</string>
+    <string name="wifi_config_list_title">Danh sách mạng</string>
+    <string name="wifi_config_list_subtitle">Các router mesh có thể cấu hình gateway khác nhau</string>
+    <string name="wifi_config_list_empty">Chưa có cấu hình mạng nào. Vui lòng thêm bên dưới.</string>
+    <string name="wifi_config_add_button">Thêm cấu hình WiFi mới</string>
+    <string name="wifi_config_delete_confirm_title">Xác nhận xóa</string>
+    <string name="wifi_config_delete_confirm_msg">Bạn có chắc chắn muốn xóa cấu hình mạng \"%1$s\" khỏi danh sách không?</string>
+    <string name="wifi_config_delete_confirm_ok">Xóa</string>
+    <string name="wifi_config_delete_confirm_cancel">Hủy</string>
+    <string name="wifi_config_label_default">Mặc định</string>
+    <string name="wifi_config_desc_monitored">Đang theo dõi mạng</string>
+    <string name="wifi_config_desc_manual_login">Thử đăng nhập</string>
+    <string name="wifi_config_desc_edit">Sửa</string>
+    <string name="wifi_config_desc_delete">Xóa</string>
+    <string name="wifi_config_sheet_title_add">THÊM CẤU HÌNH WIFI AWING</string>
+    <string name="wifi_config_sheet_title_edit">SỬA CẤU HÌNH WIFI</string>
+    <string name="wifi_config_field_ssid_label">Tên WiFi (SSID)</string>
+    <string name="wifi_config_field_ssid_placeholder">Nhập tên WiFi (SSID)</string>
+    <string name="wifi_config_field_gateway_label">Gateway URL (Router login)</string>
+    <string name="wifi_config_field_awing_label">AWING Connect URL</string>
+    <string name="wifi_config_save_button">Lưu cấu hình</string>
+    <string name="wifi_config_validation_ssid_empty">Tên SSID không được để trống</string>
+    <string name="wifi_config_validation_gateway_invalid">Gateway URL phải bắt đầu bằng http:// hoặc https://</string>
+    <string name="wifi_config_validation_awing_invalid">AWING URL phải bắt đầu bằng http:// hoặc https://</string>
+
+    <!-- Wifi Config Messages -->
+    <string name="wifi_config_msg_auto_bypass_enabled">Đã bật tự động gia hạn &amp; vượt quảng cáo</string>
+    <string name="wifi_config_msg_auto_bypass_disabled">Đã tắt tự động gia hạn &amp; vượt quảng cáo</string>
+    <string name="wifi_config_msg_save_success">Đã lưu cấu hình WiFi: %1$s</string>
+    <string name="wifi_config_msg_delete_success">Đã xóa cấu hình WiFi: %1$s</string>
+    <string name="wifi_config_msg_logging_in">Đang thực hiện đăng nhập cho %1$s...</string>
+    <string name="wifi_config_msg_login_success">Đăng nhập thành công mạng %1$s!</string>
+    <string name="wifi_config_msg_login_error">Lỗi đăng nhập: %1$s</string>
+
+    <!-- Wifi Log Sheet -->
+    <string name="wifi_log_title">Nhật ký hoạt động (Live Logs)</string>
+    <string name="wifi_log_count">%1$d dòng log ghi nhận</string>
+    <string name="wifi_log_clear">Xóa log</string>
+    <string name="wifi_log_empty">Chưa có log hoạt động nào.\nHãy thử kết nối hoặc bật tự động gia hạn.</string>
+
+    <!-- Validation Messages -->
+    <string name="validation_field_empty">Trường này không được để trống</string>
+    <string name="validation_cccd_empty">Số CCCD không được để trống</string>
+    <string name="validation_cccd_format">Số CCCD phải gồm 9 đến 12 chữ số</string>
+    <string name="validation_password_empty">Mật khẩu không được để trống</string>
+    <string name="validation_email_empty">Email không được để trống</string>
+    <string name="validation_email_format">Email không đúng định dạng</string>
+    <string name="validation_digits_only">Chỉ chấp nhận các chữ số</string>
+    <string name="validation_description_empty">Mô tả chi tiết không được để trống</string>
+    <string name="validation_description_max">Mô tả không được vượt quá 500 ký tự</string>
+    <string name="validation_old_password_empty">Mật khẩu cũ không được để trống</string>
+    <string name="validation_new_password_empty">Mật khẩu mới không được để trống</string>
+    <string name="validation_confirm_password_empty">Xác nhận mật khẩu mới không được để trống</string>
+    <string name="validation_password_mismatch">Mật khẩu mới và xác nhận mật khẩu mới không trùng khớp</string>
+    <string name="validation_email_invalid">Định dạng email không hợp lệ</string>
+
+    <!-- Auth Messages -->
+    <string name="login_error_fallback">Đăng nhập thất bại</string>
+    <string name="forgot_password_success">Yêu cầu cấp lại mật khẩu thành công. Vui lòng kiểm tra email.</string>
+    <string name="forgot_password_error">Gửi yêu cầu thất bại</string>
+    <string name="change_password_success">Thay đổi mật khẩu thành công!</string>
+    <string name="change_password_error">Thay đổi mật khẩu thất bại</string>
+    <string name="feedback_error_fallback">Gửi góp ý thất bại</string>
+
+    <!-- Notification Service Messages -->
+    <string name="notification_channel_name">Wifi Free KTX</string>
+    <string name="notification_channel_desc">Thông báo trạng thái Wifi Free</string>
+    <string name="notification_title_connected">Đang kết nối: %1$s</string>
+    <string name="notification_title_active">iDorm WiFi đang hoạt động</string>
+    <string name="notification_status_awing_monitoring">Mạng AWING — Đang theo dõi</string>
+    <string name="notification_status_other_waiting">WiFi khác — Đang chờ kết nối mạng</string>
+    <string name="notification_status_waiting">Đang chờ kết nối</string>
+    <string name="notification_status_disabled">Wi-Fi đã tắt</string>
+    <string name="notification_status_acquiring">Mạng AWING — Đang lấy Internet...</string>
+    <string name="notification_status_internet_ok">Internet OK</string>
+    <string name="notification_status_renew_failed">AWING — Gia hạn thất bại: %1$s</string>
+    <string name="notification_error_channel_name">Lỗi kết nối Wifi</string>
+    <string name="notification_error_title">Lỗi Gia Hạn Wifi KTX</string>
+    <string name="notification_error_fallback">Lỗi gia hạn tự động</string>
+
+    <!-- AppImageField Messages -->
+    <string name="image_field_default_label">Hình ảnh đính kèm</string>
+    <string name="image_field_add_photo">Thêm ảnh</string>
+    <string name="image_field_delete_photo">Xóa ảnh</string>
+</resources>

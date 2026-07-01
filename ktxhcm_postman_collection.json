@@ -1,0 +1,2411 @@
+{
+  "info": {
+    "_postman_id": "ktxhcm-api-collection",
+    "name": "KTX DHQG HCM - apisv.ktxhcm.edu.vn",
+    "description": "API Collection cho ung dung iDorm - Ky tuc xa DHQG TP.HCM\n\nBase URL: http://apisv.ktxhcm.edu.vn\n\nTong cong: 88 endpoints\n\nTrich xuat tu dong tu file index.js cua ung dung React Native iDorm.\n\nAuth: Goi Login truoc, copy Data.Token vao bien {{token}}.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://apisv.ktxhcm.edu.vn",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "item": [
+    {
+      "name": "Student",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Student/Login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Student",
+                "Login"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"StudentCode\": \"\",\n  \"PIN\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var jsonData = pm.response.json();",
+                  "if (jsonData && jsonData.Data && jsonData.Data.Token) {",
+                  "    pm.collectionVariables.set(\"token\", jsonData.Data.Token);",
+                  "    console.log(\"Token saved: \" + jsonData.Data.Token);",
+                  "}",
+                  "pm.test(\"Login successful\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetStudentInfo",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Student/GetStudentInfo",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Student",
+                "GetStudentInfo"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PostForgetPIN",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Student/PostForgetPIN",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Student",
+                "PostForgetPIN"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Email\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PostChangePIN",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Student/PostChangePIN",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Student",
+                "PostChangePIN"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"OldPIN\": \"\",\n  \"NewPIN\": \"\",\n  \"ConfirmPIN\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PostUpdateStudentInfo",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Student/PostUpdateStudentInfo",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Student",
+                "PostUpdateStudentInfo"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"IdCardNumber\": \"\",\n  \"FirstName\": \"\",\n  \"LastName\": \"\",\n  \"Gender\": \"\",\n  \"IdCardIssuedName\": \"\",\n  \"Email\": \"\",\n  \"Mobile\": \"\",\n  \"ProvineId\": \"\",\n  \"DistrictId\": \"\",\n  \"WardsId\": \"\",\n  \"Address\": \"\",\n  \"Phone\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Register",
+      "item": [
+        {
+          "name": "GetUniversityList",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Register/GetUniversityList",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Register",
+                "GetUniversityList"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetDormitoryAreaList",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Register/GetDormitoryAreaList?UniversityId=",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Register",
+                "GetDormitoryAreaList"
+              ],
+              "query": [
+                {
+                  "key": "UniversityId",
+                  "value": "",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetDormitoryHouseList",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Register/GetDormitoryHouseList?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Register",
+                "GetDormitoryHouseList"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetDormitoryRoomTypeList",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Register/GetDormitoryRoomTypeList?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Register",
+                "GetDormitoryRoomTypeList"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetDormitoryFloorList",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Register/GetDormitoryFloorList?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Register",
+                "GetDormitoryFloorList"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetDormitoryRoomList",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Register/GetDormitoryRoomList?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Register",
+                "GetDormitoryRoomList"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetDormitoryRoomSlotList",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Register/GetDormitoryRoomSlotList?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Register",
+                "GetDormitoryRoomSlotList"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetRegisterInfo",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Register/GetRegisterInfo?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Register",
+                "GetRegisterInfo"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PostRegister",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Register/PostRegister",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Register",
+                "PostRegister"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"UniversityId\": \"\",\n  \"DormitoryAreaId\": \"\",\n  \"DormitoryHouseId\": \"\",\n  \"DormitoryFloorId\": \"\",\n  \"DormitoryRoomId\": \"\",\n  \"DormitoryRoomSlotId\": \"\",\n  \"RoomTypeId\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetCheckExistStudent",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Register/GetCheckExistStudent?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Register",
+                "GetCheckExistStudent"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetVerifyCode",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Register/GetVerifyCode?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Register",
+                "GetVerifyCode"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetCheckSlot",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Register/GetCheckSlot?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Register",
+                "GetCheckSlot"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetTimeRegister",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Register/GetTimeRegister",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Register",
+                "GetTimeRegister"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetInsurranceTypes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Register/GetInsurranceTypes?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Register",
+                "GetInsurranceTypes"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ServiceAPI",
+      "item": [
+        {
+          "name": "FetchLocationCardIssued",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/ServiceAPI/FetchLocationCardIssued?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "ServiceAPI",
+                "FetchLocationCardIssued"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "FetchDepartment",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/ServiceAPI/FetchDepartment?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "ServiceAPI",
+                "FetchDepartment"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "FetchLocation",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/ServiceAPI/FetchLocation?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "ServiceAPI",
+                "FetchLocation"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetListEthnic",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/ServiceAPI/GetListEthnic?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "ServiceAPI",
+                "GetListEthnic"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetListReligion",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/ServiceAPI/GetListReligion?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "ServiceAPI",
+                "GetListReligion"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetListCountry",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/ServiceAPI/GetListCountry?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "ServiceAPI",
+                "GetListCountry"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetListPriority",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/ServiceAPI/GetListPriority?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "ServiceAPI",
+                "GetListPriority"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetListHospital",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/ServiceAPI/GetListHospital?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "ServiceAPI",
+                "GetListHospital"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Default",
+      "item": [
+        {
+          "name": "GetRentList",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Default/GetRentList?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Default",
+                "GetRentList"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetInvoiceList",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Default/GetInvoiceList?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Default",
+                "GetInvoiceList"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetDetailInvoice",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Default/GetDetailInvoice?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Default",
+                "GetDetailInvoice"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetInvoiceEWList",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Default/GetInvoiceEWList?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Default",
+                "GetInvoiceEWList"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetDetailInvoiceEW",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Default/GetDetailInvoiceEW?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Default",
+                "GetDetailInvoiceEW"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetListNotification",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Default/GetListNotification?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Default",
+                "GetListNotification"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PostUpdateNotification",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Default/PostUpdateNotification",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Default",
+                "PostUpdateNotification"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"NotificationId\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PostCovidReturn",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Default/PostCovidReturn",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Default",
+                "PostCovidReturn"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PostCovidDaily",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Default/PostCovidDaily",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Default",
+                "PostCovidDaily"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetCovidReturn",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Default/GetCovidReturn",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Default",
+                "GetCovidReturn"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetCovidDaily",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Default/GetCovidDaily",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Default",
+                "GetCovidDaily"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetListCovidRoomateWare",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Default/GetListCovidRoomateWare",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Default",
+                "GetListCovidRoomateWare"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetDetailCovidDeclaration",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Default/GetDetailCovidDeclaration/{{id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Default",
+                "GetDetailCovidDeclaration",
+                "{{id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetDebitList",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Default/GetDebitList?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Default",
+                "GetDebitList"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetAppVersion",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Default/GetAppVersion?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Default",
+                "GetAppVersion"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetListSlide",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Default/GetListSlide",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Default",
+                "GetListSlide"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetActiveSurveyList",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Default/GetActiveSurveyList?Name&startDate&endDate",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Default",
+                "GetActiveSurveyList"
+              ],
+              "query": [
+                {
+                  "key": "Name",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "startDate",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "endDate",
+                  "value": "",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Request",
+      "item": [
+        {
+          "name": "GetListChangeRoom",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Request/GetListChangeRoom?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Request",
+                "GetListChangeRoom"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetRoomMateRentRequest",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Request/GetRoomMateRentRequest?type=ChangeRoom",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Request",
+                "GetRoomMateRentRequest"
+              ],
+              "query": [
+                {
+                  "key": "type",
+                  "value": "ChangeRoom",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetOpinionByRentRequest",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Request/GetOpinionByRentRequest?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Request",
+                "GetOpinionByRentRequest"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PostOpinion",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Request/PostOpinion",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Request",
+                "PostOpinion"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"RentRequestId\": \"\",\n  \"Opinion\": \"\",\n  \"IsAgree\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DeleteOpinion",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Request/DeleteOpinion",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Request",
+                "DeleteOpinion"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Id\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetChangeRoomInfo",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Request/GetChangeRoomInfo?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Request",
+                "GetChangeRoomInfo"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PostChangeRoom",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Request/PostChangeRoom",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Request",
+                "PostChangeRoom"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"RentRequestId\": \"\",\n  \"NewRoomSlotId\": \"\",\n  \"Reason\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetListCheckOut",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Request/GetListCheckOut?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Request",
+                "GetListCheckOut"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetRoomMateRentRequest",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Request/GetRoomMateRentRequest?type=CheckOut",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Request",
+                "GetRoomMateRentRequest"
+              ],
+              "query": [
+                {
+                  "key": "type",
+                  "value": "CheckOut",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PostDeleted",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Request/PostDeleted",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Request",
+                "PostDeleted"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"RentRequestId\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PostExtendDeleted",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Request/PostExtendDeleted",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Request",
+                "PostExtendDeleted"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"RentRequestId\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetCheckoutInfo",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Request/GetCheckoutInfo?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Request",
+                "GetCheckoutInfo"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PostCheckout",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Request/PostCheckout",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Request",
+                "PostCheckout"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"RentRequestId\": \"\",\n  \"ReasonId\": \"\",\n  \"Note\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetListExtend",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Request/GetListExtend?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Request",
+                "GetListExtend"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetExtendStudentInfo",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Request/GetExtendStudentInfo?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Request",
+                "GetExtendStudentInfo"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PostExtend",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Request/PostExtend",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Request",
+                "PostExtend"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"RentRequestId\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetTimeExtend",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Request/GetTimeExtend?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Request",
+                "GetTimeExtend"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetListRepairRequest",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Request/GetListRepairRequest?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Request",
+                "GetListRepairRequest"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetListRepairRequestByRoom",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Request/GetListRepairRequestByRoom?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Request",
+                "GetListRepairRequestByRoom"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PostRepairRequest",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Request/PostRepairRequest",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Request",
+                "PostRepairRequest"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Title\": \"\",\n  \"Description\": \"\",\n  \"Images\": []\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DeleteRepairRequest",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Request/DeleteRepairRequest",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Request",
+                "DeleteRepairRequest"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Id\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PostFCMToken",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Request/PostFCMToken",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Request",
+                "PostFCMToken"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Token\": \"\",\n  \"Platform\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetReasonCheckOut",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Request/GetReasonCheckOut?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Request",
+                "GetReasonCheckOut"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Case",
+      "item": [
+        {
+          "name": "GetCases",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Case/GetCases?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Case",
+                "GetCases"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PostCase",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Case/PostCase",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Case",
+                "PostCase"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Title\": \"\",\n  \"Content\": \"\",\n  \"Images\": []\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetDetailCase",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Case/GetDetailCase?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Case",
+                "GetDetailCase"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PostComment",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Case/PostComment",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Case",
+                "PostComment"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"CaseId\": \"\",\n  \"Content\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DeleteCase",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Case/DeleteCase",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Case",
+                "DeleteCase"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Id\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetReasonReports",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Case/GetReasonReports?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Case",
+                "GetReasonReports"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PostReport",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Case/PostReport",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Case",
+                "PostReport"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"CaseId\": \"\",\n  \"ReasonId\": \"\",\n  \"Note\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DeleteComment",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Case/DeleteComment",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Case",
+                "DeleteComment"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Id\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Insurance",
+      "item": [
+        {
+          "name": "DeleteInsurranceFamily",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Insurance/DeleteInsurranceFamily",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Insurance",
+                "DeleteInsurranceFamily"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Id\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetProvinces",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Insurance/GetProvinces?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Insurance",
+                "GetProvinces"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetHospitals",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Insurance/GetHospitals?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Insurance",
+                "GetHospitals"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetInsurrances",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Insurance/GetInsurrances?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Insurance",
+                "GetInsurrances"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetDetailInsurrance",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Insurance/GetDetailInsurrance?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Insurance",
+                "GetDetailInsurrance"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PostInsurrance",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Insurance/PostInsurrance",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Insurance",
+                "PostInsurrance"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"InsuranceCode\": \"\",\n  \"ProvineId\": \"\",\n  \"InsuranceHospitalCode\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetInsurranceTypes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Insurance/GetInsurranceTypes?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Insurance",
+                "GetInsurranceTypes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetInsurranceFamilys",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Insurance/GetInsurranceFamilys?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Insurance",
+                "GetInsurranceFamilys"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetDetailInsurranceFamily",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Insurance/GetDetailInsurranceFamily/{{id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Insurance",
+                "GetDetailInsurranceFamily",
+                "{{id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PostInsurranceFamily",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Insurance/PostInsurranceFamily",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Insurance",
+                "PostInsurranceFamily"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"InsuranceCode\": \"\",\n  \"ProvineId\": \"\",\n  \"FamilyName\": \"\",\n  \"FamilyPhone\": \"\",\n  \"FamilyAddress\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PostImageFamily",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/Insurance/PostImageFamily",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Insurance",
+                "PostImageFamily"
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "FileDocument",
+      "item": [
+        {
+          "name": "PostImage",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/FileDocument/PostImage",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "FileDocument",
+                "PostImage"
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Payment",
+      "item": [
+        {
+          "name": "GetCheckPaymentOnline",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Payment/GetCheckPaymentOnline?",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Payment",
+                "GetCheckPaymentOnline"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

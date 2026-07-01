@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "475765927085",
+    "project_id": "idorm-cbf98",
+    "storage_bucket": "idorm-cbf98.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:475765927085:android:cc8f8b4f9dc3162ae62a24",
+        "android_client_info": {
+          "package_name": "com.bdsoftware.idorm"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxMmb78sQbQcnVyYtmHjQY4SeEDzJdnBA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

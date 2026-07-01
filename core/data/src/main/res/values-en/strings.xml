@@ -1,0 +1,17 @@
+<resources>
+    <!-- Notification Service Messages -->
+    <string name="notification_channel_name">KTX Free Wifi</string>
+    <string name="notification_channel_desc">Wifi Free status notifications</string>
+    <string name="notification_title_connected">Connecting: %1$s</string>
+    <string name="notification_title_active">iDorm WiFi is active</string>
+    <string name="notification_status_awing_monitoring">AWING Network — Monitoring</string>
+    <string name="notification_status_other_waiting">Other WiFi — Waiting for network connection</string>
+    <string name="notification_status_waiting">Waiting for connection</string>
+    <string name="notification_status_disabled">Wi-Fi is off</string>
+    <string name="notification_status_acquiring">AWING Network — Acquiring Internet...</string>
+    <string name="notification_status_internet_ok">Internet OK</string>
+    <string name="notification_status_renew_failed">AWING — Renewal failed: %1$s</string>
+    <string name="notification_error_channel_name">Wifi Connection Error</string>
+    <string name="notification_error_title">KTX Wifi Renewal Error</string>
+    <string name="notification_error_fallback">Auto-renewal error</string>
+</resources>

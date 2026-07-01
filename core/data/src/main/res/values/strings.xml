@@ -1,0 +1,17 @@
+<resources>
+    <!-- Notification Service Messages -->
+    <string name="notification_channel_name">Wifi Free KTX</string>
+    <string name="notification_channel_desc">Thông báo trạng thái Wifi Free</string>
+    <string name="notification_title_connected">Đang kết nối: %1$s</string>
+    <string name="notification_title_active">iDorm WiFi đang hoạt động</string>
+    <string name="notification_status_awing_monitoring">Mạng AWING — Đang theo dõi</string>
+    <string name="notification_status_other_waiting">WiFi khác — Đang chờ kết nối mạng</string>
+    <string name="notification_status_waiting">Đang chờ kết nối</string>
+    <string name="notification_status_disabled">Wi-Fi đã tắt</string>
+    <string name="notification_status_acquiring">Mạng AWING — Đang lấy Internet...</string>
+    <string name="notification_status_internet_ok">Internet OK</string>
+    <string name="notification_status_renew_failed">AWING — Gia hạn thất bại: %1$s</string>
+    <string name="notification_error_channel_name">Lỗi kết nối Wifi</string>
+    <string name="notification_error_title">Lỗi Gia Hạn Wifi KTX</string>
+    <string name="notification_error_fallback">Lỗi gia hạn tự động</string>
+</resources>
