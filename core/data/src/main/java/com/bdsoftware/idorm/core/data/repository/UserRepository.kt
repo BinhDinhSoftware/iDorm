@@ -58,7 +58,7 @@ class UserRepository @Inject constructor(
             ethnic = r.Ethnic.orEmpty(),
             ethnicName = r.EthnicName.orEmpty(),
             religion = r.Religion.orEmpty(),
-            countryId = r.CountryId?.toString().orEmpty(),
+            countryId = r.CountryId.orEmpty(),
             countryName = r.CountryName.orEmpty(),
             // Thông tin lưu trú
             provineId = r.ProvineId.orEmpty(),

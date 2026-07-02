@@ -102,6 +102,7 @@ import androidx.core.text.HtmlCompat
 import com.bdsoftware.idorm.core.designsystem.component.AppTimeline
 import com.bdsoftware.idorm.core.designsystem.component.TimelineItemData
 import com.bdsoftware.idorm.core.ui.rent.RentBadge
+import com.bdsoftware.idorm.core.ui.user.UserAvatar
 import com.bdsoftware.idorm.core.ui.notification.NotificationItem
 import com.bdsoftware.idorm.core.ui.notification.NotificationDetailBottomSheet
 import com.bdsoftware.idorm.core.designsystem.theme.ComponentStyles
@@ -233,7 +234,7 @@ internal fun HomeScreenContent(
             .background(ComponentStyles.PrimaryBlue)
     ) {
         Column(modifier = Modifier.fillMaxSize()) {
-            ProfileHeaderSection(userProfile = userProfile, scrollProgress = scrollProgress)
+            ProfileHeaderSection(userProfile = userProfile, scrollProgress = scrollProgress, isLoading = isLoading)
 
             Box(
                 modifier = Modifier
@@ -292,7 +293,8 @@ internal fun HomeScreenContent(
 @Composable
 private fun ProfileHeaderSection(
     userProfile: HomeViewModel.UserProfile,
-    scrollProgress: Float
+    scrollProgress: Float,
+    isLoading: Boolean
 ) {
     val avatarSize = (64 - (24 * scrollProgress)).dp
     val headerPaddingVertical = (16 - (8 * scrollProgress)).dp
@@ -306,20 +308,13 @@ private fun ProfileHeaderSection(
             .padding(top = topPadding, bottom = headerPaddingVertical),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        AsyncImage(
-            model = userProfile.avatarUrl,
-            contentDescription = null,
-            contentScale = ContentScale.Crop,
-            alignment = Alignment.TopCenter,
-            modifier = Modifier
-                .size(avatarSize)
-                .border(
-                    width = (2 - (1 * scrollProgress)).dp,
-                    color = Color.White.copy(alpha = 0.6f),
-                    shape = CircleShape
-                )
-                .padding((2 - (1 * scrollProgress)).dp)
-                .clip(CircleShape)
+        UserAvatar(
+            avatarUrl = userProfile.avatarUrl,
+            size = avatarSize,
+            borderWidth = (2 - (1 * scrollProgress)).dp,
+            borderColor = Color.White.copy(alpha = 0.6f),
+            padding = (2 - (1 * scrollProgress)).dp,
+            isLoading = isLoading
         )
 
         Spacer(modifier = Modifier.width(12.dp))

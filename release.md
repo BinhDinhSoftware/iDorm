@@ -47,6 +47,7 @@ Mở terminal ở thư mục gốc dự án và chạy command:
 
 ```powershell
 .\gradlew :app:bundleRelease
+.\gradlew.bat clean :app:bundleRelease --no-build-cache
 ```
 Bản build output AAB sẽ nằm ở:
 `app/build/outputs/bundle/release/app-release.aab`

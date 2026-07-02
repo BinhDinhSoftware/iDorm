@@ -45,11 +45,13 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
 import com.bdsoftware.idorm.core.designsystem.theme.ComponentStyles
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import com.bdsoftware.idorm.core.designsystem.R as DesignR
 import com.bdsoftware.idorm.core.designsystem.component.topbar.CenterTopBar
 import android.content.res.Configuration
 import com.bdsoftware.idorm.core.ui.language.LanguageSwitcher
+import com.bdsoftware.idorm.core.ui.user.UserAvatar
 import androidx.compose.ui.platform.LocalConfiguration
 
 @Composable
@@ -112,41 +114,11 @@ fun AccountScreen(
                     ) {
                         // Avatar
                         Box(modifier = Modifier.size(56.dp)) {
-                            if (userProfile != null && userProfile!!.avatarUrl.isNotEmpty()) {
-                                AsyncImage(
-                                    model = userProfile!!.avatarUrl,
-                                    contentDescription = "Avatar",
-                                    modifier = Modifier
-                                        .fillMaxSize()
-                                        .clip(CircleShape)
-                                        .background(Color(0xFFE0E0E0)),
-                                    contentScale = ContentScale.Crop
-                                )
-                            } else {
-                                Box(
-                                    modifier = Modifier
-                                        .fillMaxSize()
-                                        .clip(CircleShape)
-                                        .background(
-                                            brush = Brush.linearGradient(
-                                                colors = listOf(
-                                                    Color(0xFF0073C0),
-                                                    Color(0xFF80DEEA)
-                                                )
-                                            )
-                                        ),
-                                    contentAlignment = Alignment.Center
-                                ) {
-                                    Text(
-                                        text = userProfile?.fullName?.firstOrNull()?.toString()?.uppercase() ?: "T",
-                                        color = Color.White,
-                                        style = MaterialTheme.typography.titleMedium.copy(
-                                            fontSize = 22.sp,
-                                            fontWeight = FontWeight.Bold
-                                        )
-                                    )
-                                }
-                            }
+                            UserAvatar(
+                                avatarUrl = userProfile?.avatarUrl,
+                                size = 56.dp,
+                                isLoading = userProfile == null
+                            )
 
                             // Green verification badge
                             Box(

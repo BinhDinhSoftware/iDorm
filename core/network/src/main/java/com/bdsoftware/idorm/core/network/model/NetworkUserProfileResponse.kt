@@ -32,7 +32,7 @@ data class NetworkUserProfileResponse(
     val Ethnic: String? = null,           // ID dân tộc — tương lai sẽ map qua GetListEthnic
     val EthnicName: String? = null,       // Tên dân tộc (resolved by backend)
     val Religion: String? = null,         // Tôn giáo (plain string)
-    val CountryId: Int? = null,           // ID quốc gia — tương lai sẽ map qua GetListCountry
+    val CountryId: String? = null,           // ID quốc gia — tương lai sẽ map qua GetListCountry
     val CountryName: String? = null,      // Tên quốc gia (resolved by backend)
     // Thông tin lưu trú
     val ProvineId: String? = null,        // ID tỉnh (lưu ý API dùng "Provine" không phải "Province")
