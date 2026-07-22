@@ -12,14 +12,14 @@ plugins {
 
 android {
     namespace = "com.bdsoftware.idorm"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.bdsoftware.idorm"
         minSdk = 30
-        targetSdk = 35
-        versionCode = 7
-        versionName = "1.0.6"
+        targetSdk = 36
+        versionCode = 8
+        versionName = "1.0.7"
 
         // giữ lại tiếng Việt và tiếng Anh, loại bỏ 80+ ngôn ngữ thừa từ thư viện
         resourceConfigurations += listOf("vi", "en")
